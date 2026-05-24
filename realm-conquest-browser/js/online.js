@@ -75,6 +75,7 @@ export function connectOnline(cb) {
   socket.on('queue:status', (data) => callbacks.onQueueStatus?.(data));
   socket.on('match:found', (data) => callbacks.onMatchFound?.(data));
   socket.on('turn:change', (data) => callbacks.onTurnChange?.(data));
+  socket.on('turn:sync', (data) => callbacks.onTurnSync?.(data));
   socket.on('error', (data) => callbacks.onError?.(data.msg || data));
 
   return socket;

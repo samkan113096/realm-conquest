@@ -68,11 +68,12 @@ export class Renderer {
     }
     const mapW = maxX - minX + HEX_SIZE * 2;
     const mapH = maxY - minY + HEX_SIZE * 2;
-    const pad = 56;
+    const w = this.canvas.width;
+    const h = this.canvas.height;
+    const pad = Math.max(12, Math.min(32, Math.min(w, h) * 0.04));
     const scale = Math.min(
-      (this.canvas.width - pad * 2) / mapW,
-      (this.canvas.height - pad * 2) / mapH,
-      0.82
+      (w - pad * 2) / mapW,
+      (h - pad * 2) / mapH
     );
     this.mapScale = Number.isFinite(scale) && scale > 0 ? scale : 1;
     this.mapOffset = {
@@ -324,34 +325,33 @@ export class Renderer {
   }
 
   drawMapFrame(ctx, w, h) {
+    if (w < 400) return;
+    const m = w < 600 ? 6 : 10;
     ctx.strokeStyle = 'rgba(240,180,41,0.25)';
-    ctx.lineWidth = 3;
-    ctx.strokeRect(10, 10, w - 20, h - 20);
-    ctx.strokeStyle = 'rgba(240,180,41,0.08)';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(16, 16, w - 32, h - 32);
+    ctx.lineWidth = w < 600 ? 2 : 3;
+    ctx.strokeRect(m, m, w - m * 2, h - m * 2);
   }
 
   drawLegend(ctx, w, h) {
     const items = [
       { color: FACTIONS.player.color, label: 'You' },
-      { color: FACTIONS.enemy1.color, label: 'Red Legion' },
-      { color: FACTIONS.enemy2.color, label: 'Shadow Court' },
+      { color: FACTIONS.enemy1.color, label: w < 500 ? 'Red' : 'Red Legion' },
+      { color: FACTIONS.enemy2.color, label: w < 500 ? 'Shadow' : 'Shadow Court' },
       { color: FACTIONS.neutral.color, label: 'Neutral' },
     ];
-    ctx.font = '11px Inter, sans-serif';
-    let lx = 14;
-    const ly = h - 16;
+    const fontSize = w < 400 ? 9 : 11;
+    ctx.font = `${fontSize}px Inter, sans-serif`;
+    const boxW = Math.min(w - 16, 340);
+    const ly = h - 12;
     ctx.fillStyle = 'rgba(0,0,0,0.65)';
-    ctx.fillRect(10, h - 32, 340, 24);
-    ctx.strokeStyle = 'rgba(240,180,41,0.3)';
-    ctx.strokeRect(10, h - 32, 340, 24);
+    ctx.fillRect(8, h - 28, boxW, 22);
+    let lx = 12;
     for (const item of items) {
       ctx.fillStyle = item.color;
-      ctx.fillRect(lx, ly - 9, 12, 12);
+      ctx.fillRect(lx, ly - 8, 10, 10);
       ctx.fillStyle = '#ddd';
-      ctx.fillText(item.label, lx + 16, ly);
-      lx += ctx.measureText(item.label).width + 30;
+      ctx.fillText(item.label, lx + 14, ly);
+      lx += ctx.measureText(item.label).width + (w < 400 ? 14 : 22);
     }
   }
 

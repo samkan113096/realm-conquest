@@ -66,6 +66,33 @@ export class UI {
     if (this.els.btnEndTurn) {
       this.els.btnEndTurn.disabled = gameState.mode === 'online' && !gameState.isMyTurn;
     }
+    const timerEl = document.getElementById('res-turn-timer');
+    if (timerEl) {
+      timerEl.classList.toggle('hidden', gameState.mode !== 'online');
+    }
+  }
+
+  showTurnTimer() {
+    document.getElementById('res-turn-timer')?.classList.remove('hidden');
+  }
+
+  hideTurnTimer() {
+    document.getElementById('res-turn-timer')?.classList.add('hidden');
+  }
+
+  updateTurnTimer(remainingMs, isMyTurn) {
+    const el = document.getElementById('res-turn-timer');
+    if (!el) return;
+    const span = el.querySelector('span:last-child');
+    if (!span) return;
+    const totalSec = Math.ceil(remainingMs / 1000);
+    const m = Math.floor(totalSec / 60);
+    const s = totalSec % 60;
+    span.textContent = `${m}:${String(s).padStart(2, '0')}`;
+    el.classList.toggle('timer-warn', remainingMs > 0 && remainingMs <= 30000);
+    el.classList.toggle('timer-danger', remainingMs > 0 && remainingMs <= 10000);
+    el.classList.toggle('timer-opponent', !isMyTurn);
+    el.title = isMyTurn ? 'Your turn — 3 min max' : 'Opponent\'s turn timer';
   }
 
   updateResources(gameState) {

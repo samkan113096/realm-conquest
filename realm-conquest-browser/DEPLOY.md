@@ -2,55 +2,35 @@
 
 ## Live game (Netlify)
 
-**Production URL:** https://majestic-mandazi-fe5bd6.netlify.app
+**https://majestic-mandazi-fe5bd6.netlify.app**
 
-## Google OAuth (required for online)
+## Google OAuth
 
-1. [Google Cloud Console → Credentials](https://console.cloud.google.com/apis/credentials)
-2. Create **OAuth 2.0 Client ID** (Web application)
-3. **Authorized JavaScript origins:**
-   - `https://majestic-mandazi-fe5bd6.netlify.app`
-   - `http://localhost:8080` (local dev)
-4. Set the Client ID in `js/config.js`:
+Your Client ID is configured in `js/config.js`.
 
-```js
-GOOGLE_CLIENT_ID: 'YOUR_ID.apps.googleusercontent.com',
-```
+**Important:** Realm Conquest uses Google Identity Services (sign-in button). You must add this under **Authorized JavaScript origins** (not only redirect URIs):
 
-Or use: `https://majestic-mandazi-fe5bd6.netlify.app?google_client_id=YOUR_ID`
+- `https://majestic-mandazi-fe5bd6.netlify.app`
+- `http://localhost:8080` (optional, local dev)
 
-Redeploy Netlify after changing `config.js` (or use the URL param for a quick test).
+Adding origins to an existing OAuth client with other project URLs is safe — each origin works independently and does not break your other apps.
 
-## Online matchmaking server (Render)
+Redirect URIs (like `/api/auth/callback`) are for server redirect flows and are **not** used by this game.
 
-The browser game connects to a Socket.IO server. Netlify only hosts static files.
+## Online matchmaking (Render — recommended)
 
-1. Push this repo to GitHub (if not already).
-2. [Render Dashboard](https://dashboard.render.com/) → **New** → **Blueprint**
-3. Point at repo; Render reads `realm-conquest-browser/render.yaml`
-4. Service name: `realm-conquest-api` → URL like `https://realm-conquest-api.onrender.com`
-5. First request may take ~30s (free tier cold start).
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SelfLearnedDev2027/realm-conquest)
 
-If your Render URL differs, either:
+1. Click the button above (or Render Dashboard → New → Blueprint → connect GitHub repo `SelfLearnedDev2027/realm-conquest`)
+2. Service name: `realm-conquest-api` → URL like `https://realm-conquest-api.onrender.com`
+3. Update `window.RC_CONFIG.SOCKET_URL` in `index.html` to your Render URL
+4. Redeploy Netlify: `cd realm-conquest-browser && netlify deploy --prod --dir=.`
 
-- Edit `js/config.js` → `resolveSocketUrl()` production return value, or
-- Play with `?socket_url=https://your-service.onrender.com`
+GitHub repo: https://github.com/SelfLearnedDev2027/realm-conquest
 
 ## Local development
 
 ```bash
-# Terminal 1 — game
-npm run web
-
-# Terminal 2 — online server
-npm run web:server
-```
-
-Open http://localhost:8080
-
-## Redeploy Netlify
-
-```bash
-cd realm-conquest-browser
-netlify deploy --prod --dir=.
+npm run web          # game → http://localhost:8080
+npm run web:server   # matchmaking → http://localhost:8090
 ```

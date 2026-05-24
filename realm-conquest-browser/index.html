@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Realm Conquest — Free Medieval Strategy Game</title>
   <meta name="description" content="Realm Conquest — medieval hex strategy in Aldoria. Solo vs AI or online PvP with Google sign-in.">
   <link rel="stylesheet" href="css/style.css">
@@ -14,7 +14,8 @@
   <script>
     // After deploying matchmaking to Render, set your service URL here:
     window.RC_CONFIG = {
-      SOCKET_URL: 'https://realm-conquest-api.onrender.com',
+      // Production matchmaking (Render). Until Render is live, tunnel bridges local server.
+      SOCKET_URL: 'https://improving-wish-alot-inspired.trycloudflare.com',
     };
   </script>
 </head>
@@ -22,7 +23,7 @@
   <div id="splash">
     <div class="splash-frame">
       <div class="splash-art">
-        <img src="assets/logo.svg" alt="Realm Conquest" width="160" height="160">
+        <img src="assets/logo.svg" alt="Realm Conquest" width="88" height="88">
       </div>
       <div class="splash-content">
         <p class="lore-tag">Kingdom of Aldoria · Age of Warlords</p>
@@ -73,12 +74,15 @@
       <button id="btn-main-menu" class="btn-menu" type="button" title="Main Menu">← Menu</button>
       <div id="mode-banner" class="mode-banner"></div>
       <div id="auth-bar" class="auth-bar"></div>
-      <div class="resource" id="res-gold">🪙 <span>0</span></div>
-      <div class="resource" id="res-food">🌾 <span>0</span></div>
-      <div class="resource" id="res-army">⚔ <span>0</span></div>
-      <div class="resource" id="res-attacks">Attacks <span>3</span>/3</div>
-      <div class="resource" id="res-turn">Turn <span>1</span></div>
-      <button id="btn-help" class="btn-help" title="Tutorial">?</button>
+      <div class="top-bar-resources">
+        <div class="resource" id="res-gold">🪙 <span>0</span></div>
+        <div class="resource" id="res-food">🌾 <span>0</span></div>
+        <div class="resource" id="res-army">⚔ <span>0</span></div>
+        <div class="resource resource-timer hidden" id="res-turn-timer">⏱ <span>3:00</span></div>
+        <div class="resource" id="res-attacks"><span class="res-label-full">Attacks </span><span>3</span>/3</div>
+        <div class="resource" id="res-turn"><span class="res-label-full">Turn </span><span>1</span></div>
+        <button id="btn-help" class="btn-help" title="Tutorial">?</button>
+      </div>
     </header>
     <main id="main-area">
       <div id="map-viewport">
@@ -87,9 +91,9 @@
       <aside id="sidebar" class="sidebar-medieval">
         <h2 id="territory-name">Select a territory</h2>
         <div id="territory-info" class="territory-scroll"></div>
-                <div id="action-panel" class="hidden">
+        <div id="action-panel" class="hidden">
           <h3>Actions</h3>
-                    <div id="target-chooser" class="target-chooser hidden"></div>
+          <div id="target-chooser" class="target-chooser hidden"></div>
           <button class="btn-action" data-action="build-farm">🌾 Build Farm (30 gold)</button>
           <button class="btn-action" data-action="build-barracks">🏰 Build Barracks (50 gold)</button>
           <button class="btn-action" data-action="build-market">🏪 Build Market (40 gold)</button>
@@ -120,7 +124,7 @@
       <h2>How to Play</h2>
       <ol class="tutorial-steps">
         <li><strong>Solo</strong> — Play vs Computer: fight AI lords (Red Legion &amp; Shadow Court). No login.</li>
-        <li><strong>Online</strong> — Google sign-in only. Enter the lobby and find a real opponent worldwide.</li>
+        <li><strong>Online</strong> — Google sign-in only. Each turn is limited to <strong>3 minutes</strong>; if time runs out, your opponent plays.</li>
         <li><strong>Select</strong> your house's territory on the hex map.</li>
         <li><strong>Build</strong> Farm → Barracks → Market, recruit warriors &amp; archers.</li>
         <li><strong>Move / Attack</strong> — click the action, then pick a highlighted hex (map or sidebar list).</li>

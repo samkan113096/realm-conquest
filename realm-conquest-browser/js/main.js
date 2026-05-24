@@ -14,7 +14,66 @@ import {
 let gameState;
 let renderer;
 let turnBusy = false;
+let turnTimerInterval = null;
 const ui = new UI();
+
+function clearTurnTimer() {
+  if (turnTimerInterval) {
+    clearInterval(turnTimerInterval);
+    turnTimerInterval = null;
+  }
+}
+
+function syncTurnTimer(turnDeadline) {
+  clearTurnTimer();
+  if (!gameState || gameState.mode !== 'online' || !turnDeadline) {
+    ui.hideTurnTimer();
+    return;
+  }
+  gameState.turnDeadline = turnDeadline;
+  ui.showTurnTimer();
+  const tick = () => {
+    const remaining = Math.max(0, gameState.turnDeadline - Date.now());
+    ui.updateTurnTimer(remaining, gameState.isMyTurn);
+    if (remaining <= 0) clearTurnTimer();
+  };
+  tick();
+  turnTimerInterval = setInterval(tick, 250);
+}
+
+async function forceLocalTurnEnd() {
+  if (!gameState || turnBusy) return;
+  turnBusy = true;
+  gameState.endTurn(() => {});
+  turnBusy = false;
+}
+
+async function applyOnlineTurnChange(data) {
+  if (!gameState) return;
+  const me = getCurrentUser()?.id;
+  const wasMyTurn = gameState.isMyTurn;
+
+  if (wasMyTurn && data.reason === 'timeout') {
+    await forceLocalTurnEnd();
+  }
+
+  gameState.isMyTurn = data.activePlayerId === me;
+
+  if (data.reason === 'timeout') {
+    if (wasMyTurn && !gameState.isMyTurn) {
+      ui.toast('Time\'s up! Turn passed to your opponent (3 min limit).', 'error');
+    } else if (!wasMyTurn && gameState.isMyTurn) {
+      ui.toast('Opponent ran out of time — your turn!', 'success');
+    }
+  } else if (data.reason !== 'sync') {
+    if (gameState.isMyTurn) ui.toast('Your turn! (3 min)', 'info');
+    else ui.toast('Opponent is playing…', 'info');
+  }
+
+  syncTurnTimer(data.turnDeadline);
+  ui.updateModeBanner(gameState);
+  refreshView();
+}
 
 function refreshView() {
   if (!gameState) return;
@@ -101,6 +160,7 @@ function init() {
 
 function goMainMenu() {
   if (gameState && !gameState.gameOver && !confirm('Return to main menu? Unsaved progress will be lost.')) return;
+  clearTurnTimer();
   disconnectOnline();
   gameState = null;
   turnBusy = false;
@@ -155,14 +215,8 @@ function openOnlineLobby() {
       ui.hideLobby();
       startOnlineGame(data);
     },
-    onTurnChange: (data) => {
-      if (!gameState) return;
-      const me = getCurrentUser()?.id;
-      gameState.isMyTurn = data.activePlayerId === me;
-      ui.updateModeBanner(gameState);
-      if (gameState.isMyTurn) ui.toast('Your turn!', 'info');
-      else ui.toast('Opponent is playing…', 'info');
-    },
+    onTurnChange: (data) => applyOnlineTurnChange(data),
+    onTurnSync: (data) => applyOnlineTurnChange(data),
     onError: (msg) => {
       document.getElementById('lobby-status').textContent = msg;
       ui.toast(msg, 'error');
@@ -257,7 +311,11 @@ function startOnlineGame(match) {
   gameState.selectTerritory(start);
   ui.showGame();
   refreshView();
-  ui.toast(`Matched vs ${match.opponent.name}! ${match.yourTurn ? 'You move first.' : 'Opponent moves first.'}`, 'success');
+  syncTurnTimer(match.turnDeadline);
+  ui.toast(
+    `Matched vs ${match.opponent.name}! ${match.yourTurn ? 'You move first.' : 'Opponent moves first.'} (3 min/turn)`,
+    'success',
+  );
 }
 
 function handleAction(action) {

@@ -1,0 +1,25 @@
+{
+  "name": "game-dev-portfolio",
+  "version": "1.0.0",
+  "description": "Four independent games + Chain Loot GameFi on Optimism",
+  "scripts": {
+    "web": "npx --yes serve realm-conquest-browser -l 8080",
+    "web:server": "cd realm-conquest-browser/server && npm install && npm start",
+    "site": "npx --yes serve website -p 3000",
+    "site:all": "concurrently \"npm run site\" \"npm run web\" \"npm run gamefi\"",
+    "pc": "cd neon-drift-pc && python3 main.py",
+    "phone:web": "cd shadow-strike-mobile && npx expo start --web --port 8082",
+    "phone:ios": "cd shadow-strike-mobile && npx expo start --ios",
+    "phone:android": "cd shadow-strike-mobile && npx expo start --android",
+    "gamefi": "cd gamefi && npm run dapp",
+    "gamefi:deploy": "cd gamefi && npm run deploy:local",
+    "gamefi:signer": "cd gamefi && npm run signer",
+    "gamefi:node": "cd gamefi && npm run node",
+    "install:all": "cd shadow-strike-mobile && npm install && cd ../neon-drift-pc && pip3 install -r requirements.txt && cd ../gamefi && npm install && cd dapp && npm install",
+    "start:all": "./scripts/start-all.sh"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "private": true
+}

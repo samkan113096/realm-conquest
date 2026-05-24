@@ -24,6 +24,7 @@ export const CONFIG = {
   SOCKET_URL: resolveSocketUrl(),
   ENABLE_MULTIPLAYER: true,
   MAX_ATTACKS_PER_TURN: 3,
+  ONLINE_TURN_MS: 3 * 60 * 1000,
 };
 
 export function hasGoogleAuth() {

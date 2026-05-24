@@ -7,3 +7,5 @@ __pycache__/
 .env
 .DS_Store
 pc-game/highscore.json
+.netlify/
+realm-conquest-browser/server/node_modules/

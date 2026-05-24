@@ -7,9 +7,16 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 
 const PORT = process.env.PORT || process.env.RC_PORT || 8090;
+const TURN_MS = Number(process.env.RC_TURN_MS) || 3 * 60 * 1000;
+
 const app = express();
 app.use(cors({ origin: '*' }));
-app.get('/api/health', (_, res) => res.json({ ok: true, online: lobby.size, queue: queue.length }));
+app.get('/api/health', (_, res) => res.json({
+  ok: true,
+  online: lobby.size,
+  queue: queue.length,
+  turnLimitSec: TURN_MS / 1000,
+}));
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
@@ -21,7 +28,7 @@ const io = new Server(httpServer, {
 const lobby = new Map();
 /** @type {string[]} */
 const queue = [];
-/** @type {Map<string, { id, players, seed, turnIndex }>} */
+/** @type {Map<string, object>} */
 const rooms = new Map();
 
 function lobbySnapshot() {
@@ -42,6 +49,48 @@ function broadcastLobby() {
   io.emit('lobby:update', { count: lobby.size, players: lobbySnapshot() });
 }
 
+function clearRoomTimer(room) {
+  if (room.turnTimer) {
+    clearTimeout(room.turnTimer);
+    room.turnTimer = null;
+  }
+}
+
+function turnPayload(room, reason = 'ended') {
+  return {
+    turnIndex: room.turnIndex,
+    activePlayerId: room.players[room.turnIndex].id,
+    turnDeadline: room.turnDeadline,
+    turnLimitMs: TURN_MS,
+    reason,
+  };
+}
+
+function scheduleTurnTimeout(room) {
+  clearRoomTimer(room);
+  const remaining = Math.max(0, room.turnDeadline - Date.now());
+  room.turnTimer = setTimeout(() => {
+    if (!rooms.has(room.id)) return;
+    room.turnIndex = (room.turnIndex + 1) % 2;
+    room.turnDeadline = Date.now() + TURN_MS;
+    io.to(room.id).emit('turn:change', turnPayload(room, 'timeout'));
+    scheduleTurnTimeout(room);
+  }, remaining);
+}
+
+function startTurnClock(room) {
+  room.turnDeadline = Date.now() + TURN_MS;
+  scheduleTurnTimeout(room);
+  return room.turnDeadline;
+}
+
+function advanceTurn(room, reason = 'ended') {
+  room.turnIndex = (room.turnIndex + 1) % 2;
+  room.turnDeadline = Date.now() + TURN_MS;
+  io.to(room.id).emit('turn:change', turnPayload(room, reason));
+  scheduleTurnTimeout(room);
+}
+
 function tryMatch() {
   while (queue.length >= 2) {
     const a = queue.shift();
@@ -60,8 +109,11 @@ function tryMatch() {
       ],
       seed,
       turnIndex: 0,
+      turnDeadline: 0,
+      turnTimer: null,
     };
     rooms.set(roomId, room);
+    const turnDeadline = startTurnClock(room);
 
     io.to(pa.socketId).emit('match:found', {
       roomId,
@@ -69,6 +121,8 @@ function tryMatch() {
       you: room.players[0],
       opponent: room.players[1],
       yourTurn: true,
+      turnDeadline,
+      turnLimitMs: TURN_MS,
     });
     io.to(pb.socketId).emit('match:found', {
       roomId,
@@ -76,11 +130,17 @@ function tryMatch() {
       you: room.players[1],
       opponent: room.players[0],
       yourTurn: false,
+      turnDeadline,
+      turnLimitMs: TURN_MS,
     });
 
     io.to(pa.socketId).emit('queue:status', { queued: false, matched: true });
     io.to(pb.socketId).emit('queue:status', { queued: false, matched: true });
   }
+}
+
+function playerForSocket(socketId) {
+  return [...lobby.values()].find(p => p.socketId === socketId);
 }
 
 io.on('connection', (socket) => {
@@ -94,7 +154,6 @@ io.on('connection', (socket) => {
       return;
     }
 
-    // Replace stale socket for same Google account
     const existing = lobby.get(user.id);
     if (existing?.socketId && existing.socketId !== socket.id) {
       const qi = queue.indexOf(user.id);
@@ -109,7 +168,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('queue:join', () => {
-    const entry = [...lobby.values()].find(p => p.socketId === socket.id);
+    const entry = playerForSocket(socket.id);
     if (!entry) {
       socket.emit('error', { msg: 'Join the lobby with Google first.' });
       return;
@@ -124,7 +183,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('queue:leave', () => {
-    const entry = [...lobby.values()].find(p => p.socketId === socket.id);
+    const entry = playerForSocket(socket.id);
     if (entry) {
       const i = queue.indexOf(entry.id);
       if (i >= 0) queue.splice(i, 1);
@@ -133,17 +192,22 @@ io.on('connection', (socket) => {
   });
 
   socket.on('room:join', ({ roomId }) => {
-    if (roomId) socket.join(roomId);
+    if (roomId) {
+      socket.join(roomId);
+      const room = rooms.get(roomId);
+      if (room) {
+        socket.emit('turn:sync', turnPayload(room, 'sync'));
+      }
+    }
   });
 
   socket.on('turn:end', ({ roomId }) => {
     const room = rooms.get(roomId);
     if (!room) return;
-    room.turnIndex = (room.turnIndex + 1) % 2;
-    io.to(roomId).emit('turn:change', {
-      turnIndex: room.turnIndex,
-      activePlayerId: room.players[room.turnIndex].id,
-    });
+    const entry = playerForSocket(socket.id);
+    const active = room.players[room.turnIndex];
+    if (!entry || entry.id !== active.id) return;
+    advanceTurn(room, 'ended');
   });
 
   socket.on('disconnect', () => {
@@ -159,5 +223,5 @@ io.on('connection', (socket) => {
 });
 
 httpServer.listen(PORT, '0.0.0.0', () => {
-  console.log(`Realm Conquest online server → port ${PORT}`);
+  console.log(`Realm Conquest online server → port ${PORT} (${TURN_MS / 1000}s turn limit)`);
 });

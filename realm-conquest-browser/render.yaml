@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: realm-conquest-api
+    runtime: node
+    rootDir: realm-conquest-browser/server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "20"

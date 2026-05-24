@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a1028"/>
+      <stop offset="45%" stop-color="#3d2a1a"/>
+      <stop offset="100%" stop-color="#0d1810"/>
+    </linearGradient>
+    <radialGradient id="moon" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe9b0"/>
+      <stop offset="100%" stop-color="#c9a050" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <circle cx="1600" cy="180" r="90" fill="url(#moon)" opacity="0.7"/>
+  <polygon points="0,720 480,520 960,680 1440,480 1920,640 1920,1080 0,1080" fill="#1a2818"/>
+  <polygon points="200,780 520,620 760,760 200,900" fill="#243820"/>
+  <rect x="860" y="420" width="200" height="280" fill="#3a3530"/>
+  <polygon points="860,420 960,320 1060,420" fill="#4a4038"/>
+  <rect x="900" y="520" width="40" height="60" fill="#1a1510"/>
+  <rect x="980" y="480" width="30" height="30" fill="#ffd080" opacity="0.8"/>
+  <rect x="920" y="480" width="30" height="30" fill="#ffd080" opacity="0.6"/>
+  <rect x="880" y="350" width="20" height="90" fill="#5a5048"/>
+  <polygon points="880,350 890,280 900,350" fill="#c04040"/>
+  <text x="960" y="780" text-anchor="middle" fill="#c9a050" font-family="serif" font-size="48" opacity="0.35">ALDORIA</text>
+</svg>

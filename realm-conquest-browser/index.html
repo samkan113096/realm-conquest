@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Realm Conquest — Free Medieval Strategy Game</title>
+  <meta name="description" content="Realm Conquest — medieval hex strategy in Aldoria. Solo vs AI or online PvP with Google sign-in.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital@0;1&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://cdn.socket.io/4.8.0/socket.io.min.js"></script>
+  <script>
+    // After deploying matchmaking to Render, set your service URL here:
+    window.RC_CONFIG = {
+      SOCKET_URL: 'https://realm-conquest-api.onrender.com',
+    };
+  </script>
+</head>
+<body>
+  <div id="splash">
+    <div class="splash-frame">
+      <div class="splash-art">
+        <img src="assets/logo.svg" alt="Realm Conquest" width="160" height="160">
+      </div>
+      <div class="splash-content">
+        <p class="lore-tag">Kingdom of Aldoria · Age of Warlords</p>
+        <h1>Realm Conquest</h1>
+        <p class="lore-text">Three great houses tear Aldoria apart. Forge armies, conquer hex lands, and claim the realm.</p>
+
+        <div class="mode-cards">
+          <article class="mode-card mode-card--solo">
+            <div class="mode-icon">⚔</div>
+            <h2>Solo Campaign</h2>
+            <p>Practice against <strong>computer lords</strong> — Red Legion &amp; Shadow Court AI. No account needed.</p>
+            <button id="btn-solo" class="btn-primary btn-block">Play vs Computer</button>
+          </article>
+
+          <article class="mode-card mode-card--online">
+            <div class="mode-icon">🌍</div>
+            <h2>Online PvP</h2>
+            <p>Sign in with <strong>Google only</strong>. Match with players worldwide in real-time duels.</p>
+            <div id="google-signin-online"></div>
+            <p id="google-setup-hint" class="setup-hint hidden">Set <code>GOOGLE_CLIENT_ID</code> in <code>js/config.js</code> to enable Google login.</p>
+            <button id="btn-online-lobby" class="btn-secondary btn-block" disabled>Enter Online Lobby</button>
+          </article>
+        </div>
+
+        <div class="splash-actions">
+          <button id="btn-tutorial" class="btn-link">How to Play</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="lobby-overlay" class="hidden">
+    <div class="lobby-panel parchment">
+      <button id="btn-lobby-back" class="btn-link btn-back">← Main Menu</button>
+      <h2>Online Realm</h2>
+      <p id="lobby-user" class="lobby-user"></p>
+      <div class="lobby-stats">
+        <div class="lobby-stat"><span id="lobby-count">0</span> lords online</div>
+      </div>
+      <ul id="lobby-players" class="lobby-players"></ul>
+      <button id="btn-find-match" class="btn-primary btn-block" disabled>Find Match</button>
+      <p id="lobby-status" class="lobby-status">Connect to the realm server…</p>
+    </div>
+  </div>
+
+  <div id="game-container" class="hidden">
+    <header id="top-bar" class="top-bar-medieval">
+      <button id="btn-main-menu" class="btn-menu" type="button" title="Main Menu">← Menu</button>
+      <div id="mode-banner" class="mode-banner"></div>
+      <div id="auth-bar" class="auth-bar"></div>
+      <div class="resource" id="res-gold">🪙 <span>0</span></div>
+      <div class="resource" id="res-food">🌾 <span>0</span></div>
+      <div class="resource" id="res-army">⚔ <span>0</span></div>
+      <div class="resource" id="res-attacks">Attacks <span>3</span>/3</div>
+      <div class="resource" id="res-turn">Turn <span>1</span></div>
+      <button id="btn-help" class="btn-help" title="Tutorial">?</button>
+    </header>
+    <main id="main-area">
+      <div id="map-viewport">
+        <canvas id="game-canvas"></canvas>
+      </div>
+      <aside id="sidebar" class="sidebar-medieval">
+        <h2 id="territory-name">Select a territory</h2>
+        <div id="territory-info" class="territory-scroll"></div>
+                <div id="action-panel" class="hidden">
+          <h3>Actions</h3>
+                    <div id="target-chooser" class="target-chooser hidden"></div>
+          <button class="btn-action" data-action="build-farm">🌾 Build Farm (30 gold)</button>
+          <button class="btn-action" data-action="build-barracks">🏰 Build Barracks (50 gold)</button>
+          <button class="btn-action" data-action="build-market">🏪 Build Market (40 gold)</button>
+          <button class="btn-action" data-action="recruit-warrior">🗡 Recruit Warrior (20g, 10 food)</button>
+          <button class="btn-action" data-action="recruit-archer">🏹 Recruit Archer (25g, 15 food)</button>
+          <hr>
+          <button class="btn-action btn-move" data-action="move-army">↔ Move Army</button>
+          <button class="btn-action btn-danger" data-action="attack">⚔ Attack (3/turn)</button>
+          <button class="btn-action hidden" data-action="cancel-action">Cancel</button>
+        </div>
+        <button id="btn-end-turn" class="btn-primary btn-block">End Turn</button>
+      </aside>
+    </main>
+    <div id="toast-container"></div>
+    <div id="turn-overlay" class="turn-overlay hidden">
+      <div class="turn-overlay-card parchment">
+        <p class="turn-overlay-kicker">Enemy turn</p>
+        <h2 id="turn-overlay-title">The realm stirs…</h2>
+        <p id="turn-overlay-detail"></p>
+        <div class="turn-overlay-spinner"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="tutorial-overlay" class="hidden">
+    <div id="tutorial-panel" class="parchment">
+      <h2>How to Play</h2>
+      <ol class="tutorial-steps">
+        <li><strong>Solo</strong> — Play vs Computer: fight AI lords (Red Legion &amp; Shadow Court). No login.</li>
+        <li><strong>Online</strong> — Google sign-in only. Enter the lobby and find a real opponent worldwide.</li>
+        <li><strong>Select</strong> your house's territory on the hex map.</li>
+        <li><strong>Build</strong> Farm → Barracks → Market, recruit warriors &amp; archers.</li>
+        <li><strong>Move / Attack</strong> — click the action, then pick a highlighted hex (map or sidebar list).</li>
+        <li><strong>Attack</strong> up to 3 times per turn on adjacent enemies.</li>
+        <li><strong>Win</strong> by holding 70% of Aldoria.</li>
+      </ol>
+      <button id="tutorial-close" class="btn-primary">Got it</button>
+    </div>
+  </div>
+
+  <div id="modal-overlay" class="hidden">
+    <div id="modal" class="parchment">
+      <h2 id="modal-title"></h2>
+      <p id="modal-body"></p>
+      <button id="modal-btn" class="btn-primary">Continue</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

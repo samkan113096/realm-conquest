@@ -8,7 +8,7 @@
     "site": "npx --yes serve website -p 3000",
     "site:all": "concurrently \"npm run site\" \"npm run web\" \"npm run gamefi\"",
     "pc": "cd neon-drift-pc && python3 main.py",
-    "phone:web": "cd shadow-strike-mobile && npx expo start --web --port 8082",
+    "phone:web": "cd shadow-strike-mobile && npx expo start --web --port 8082 --clear",
     "phone:ios": "cd shadow-strike-mobile && npx expo start --ios",
     "phone:android": "cd shadow-strike-mobile && npx expo start --android",
     "gamefi": "cd gamefi && npm run dapp",

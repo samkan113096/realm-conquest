@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Shadow Strike",
+    "slug": "shadow-strike",
+    "version": "1.0.0",
+    "orientation": "landscape",
+    "platforms": ["ios", "android", "web"],
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "scheme": "shadowstrike",
+    "splash": {
+      "image": "./assets/backgrounds/menu-hero.jpg",
+      "resizeMode": "cover",
+      "backgroundColor": "#0a0612"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.gamedev.shadowstrike",
+      "buildNumber": "1",
+      "infoPlist": {
+        "UISupportedInterfaceOrientations": [
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
+        ]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundColor": "#0a0612"
+      },
+      "package": "com.gamedev.shadowstrike",
+      "versionCode": 1
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./assets/icon.png",
+      "backgroundColor": "#0a0612",
+      "themeColor": "#0a0612"
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "shadow-strike-mobile"
+      }
+    }
+  }
+}

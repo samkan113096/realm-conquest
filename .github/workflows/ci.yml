@@ -13,11 +13,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Verify web game files
+      - name: Verify Realm Conquest browser game files
         run: |
-          test -f web-game/index.html
-          test -f web-game/js/main.js
-          node --check web-game/js/main.js 2>/dev/null || true
+          test -f realm-conquest-browser/index.html
+          test -f realm-conquest-browser/js/game.js
+          node --check realm-conquest-browser/js/game.js
+          node --check realm-conquest-browser/js/ai.js
+          node --check realm-conquest-browser/js/config.js
 
   pc-game:
     runs-on: ubuntu-latest
@@ -26,16 +28,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install pygame
-        run: pip install -r pc-game/requirements.txt
+      - name: Install dependencies
+        run: pip install -r neon-drift-pc/requirements.txt
       - name: Syntax check Python files
         run: |
-          python -m py_compile pc-game/main.py
-          python -m py_compile pc-game/game.py
-          python -m py_compile pc-game/player.py
-          python -m py_compile pc-game/entities.py
-          python -m py_compile pc-game/powerups.py
-          python -m py_compile pc-game/ui.py
+          python -m py_compile neon-drift-pc/main.py
+          python -m py_compile neon-drift-pc/game.py
+          python -m py_compile neon-drift-pc/player.py
+          python -m py_compile neon-drift-pc/entities.py
+          python -m py_compile neon-drift-pc/powerups.py
 
   gamefi:
     runs-on: ubuntu-latest
@@ -59,9 +60,10 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        working-directory: phone-game
+        working-directory: shadow-strike-mobile
         run: npm install
       - name: Verify app structure
         run: |
-          test -f phone-game/App.js
-          test -f phone-game/src/components/GameScreen.js
+          test -f shadow-strike-mobile/App.js
+          test -f shadow-strike-mobile/src/components/GameScreen.js
+          node --check shadow-strike-mobile/App.js

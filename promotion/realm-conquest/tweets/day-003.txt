@@ -1,0 +1,10 @@
+Why players stick with Realm Conquest:
+
+✓ Recruit warriors and archers to expand
+✓ End turn only when your economy is stable
+
+
+
+▶ http://localhost:8080
+
+#RealmConquest #StrategyGame #IndieGame #BrowserGame

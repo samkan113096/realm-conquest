@@ -88,8 +88,8 @@ eas submit --platform android
 
 | Platform | ID |
 |----------|-----|
-| iOS bundle ID | `com.gamedev.shadowstrike` |
-| Android package | `com.gamedev.shadowstrike` |
+| iOS bundle ID | `com.shadowstrike.myapp` |
+| Android package | `com.shadowstrike.myapp` |
 | Orientation | Landscape only |
 
 You will need Apple Developer and Google Play Console accounts for store submission. Replace the placeholder `projectId` in `app.json` with your real EAS project ID after running `eas init`.

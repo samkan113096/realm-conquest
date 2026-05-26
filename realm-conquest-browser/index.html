@@ -12,10 +12,9 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://cdn.socket.io/4.8.0/socket.io.min.js"></script>
   <script>
-    // After deploying matchmaking to Render, set your service URL here:
     window.RC_CONFIG = {
-      // Production matchmaking (Render). Until Render is live, tunnel bridges local server.
-      SOCKET_URL: 'https://improving-wish-alot-inspired.trycloudflare.com',
+      // Matchmaking API (Render). Deploy: npm run deploy:render
+      SOCKET_URL: 'https://realm-conquest-api.onrender.com',
     };
   </script>
 </head>

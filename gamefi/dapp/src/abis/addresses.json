@@ -1,0 +1,19 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "deployer": "0x9270209A465b466b7a25865B61e1878953AFE676",
+  "GameToken": "0xC9527141ECec9E9536F9268a3F79Cd62733DB5b9",
+  "GameHero": "0x8817a2A8EE8db77d8eFCF8FaE6355a49010a37F8",
+  "GameWeapon": "0xe192b156C797a146e6EBB12feFdA985742b33BDd",
+  "ZombieSiege": "0xF264752dA4d30a4F22fBA5587A5863B22622f024",
+  "ZombieSiegeImplementation": "0x1917a6a5c61a36d5A6Edb1E13B8c805F3cFd6582",
+  "upgradeable": true,
+  "proxyKind": "UUPS",
+  "GameStaking": "0xb2266dFe74fd1761de2216AA1942CdF79ac7782F",
+  "GameRewards": "0x8e95d43DD1BD7787945943A19c94b98d1dA0eD8d",
+  "GameMarketplace": "0xEf3D922c750eD99648de56Ff15D5690b96c4134b",
+  "deployedAt": "2026-05-24T16:03:13.478Z",
+  "LootAirdrop": "0xDb6233A690022Cf592BF5E26A837659e51605731",
+  "airdropNote": "Admin sets EOA allocations via setAllocations; distribute with airdropBatch or users claim()",
+  "updatedAt": "2026-05-24T16:52:13.209Z"
+}

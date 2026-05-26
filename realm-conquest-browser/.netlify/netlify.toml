@@ -10,6 +10,7 @@ plugins = []
 publish = "/Users/samkan/game/realm-conquest-browser"
 publishOrigin = "config"
 commandOrigin = "config"
+base = "/Users/samkan/game/realm-conquest-browser"
 command = "echo 'Static site — no build'"
 
 [build.environment]

@@ -2,8 +2,8 @@
 
 Use this copy when submitting **Shadow Strike** to Apple App Store and Google Play.
 
-**Bundle ID (iOS):** `com.gamedev.shadowstrike`  
-**Package (Android):** `com.gamedev.shadowstrike`  
+**Bundle ID (iOS):** `com.shadowstrike.myapp`  
+**Package (Android):** `com.shadowstrike.myapp`  
 **Category:** Games → Action / Arcade  
 **Age rating:** 12+ (fantasy violence, no blood/gore)  
 **Price:** Free  
@@ -192,7 +192,7 @@ Free on App Store & Google Play. Link in bio.
 |-------|--------|
 | Privacy policy URL | https://heartfelt-youtiao-7e3960.netlify.app/privacy.html |
 | Marketing URL | https://heartfelt-youtiao-7e3960.netlify.app/ |
-| Support email | dickyhui.dev@gmail.com |
+| Support email | dickhui912@gmail.com |
 | Developer name | Dicky Hui |
 
 ---

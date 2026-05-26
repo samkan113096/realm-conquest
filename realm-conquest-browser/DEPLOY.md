@@ -17,16 +17,32 @@ Adding origins to an existing OAuth client with other project URLs is safe — e
 
 Redirect URIs (like `/api/auth/callback`) are for server redirect flows and are **not** used by this game.
 
-## Online matchmaking (Render — recommended)
+## Online matchmaking (Render)
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SelfLearnedDev2027/realm-conquest)
+**API URL (after deploy):** `https://realm-conquest-api.onrender.com`
 
-1. Click the button above (or Render Dashboard → New → Blueprint → connect GitHub repo `SelfLearnedDev2027/realm-conquest`)
-2. Service name: `realm-conquest-api` → URL like `https://realm-conquest-api.onrender.com`
-3. Update `window.RC_CONFIG.SOCKET_URL` in `index.html` to your Render URL
-4. Redeploy Netlify: `cd realm-conquest-browser && netlify deploy --prod --dir=.`
+### Option A — CLI (recommended)
 
-GitHub repo: https://github.com/SelfLearnedDev2027/realm-conquest
+1. [Create Render API key](https://dashboard.render.com/u/settings#api-keys)
+2. From repo root:
+   ```bash
+   export RENDER_API_KEY=rnd_your_key_here
+   npm run deploy:render
+   ```
+3. Wait 2–5 min, then check: https://realm-conquest-api.onrender.com/api/health
+4. Redeploy game: `npm run deploy:realm`
+
+`index.html` already points `SOCKET_URL` at the Render service.
+
+### Option B — Blueprint (one click)
+
+**Connect GitHub first:** https://dashboard.render.com/u/settings#integrations
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/samkan113096/realm-conquest-api)
+
+GitHub: https://github.com/samkan113096/realm-conquest-api (matchmaking) · https://github.com/samkan113096/realm-conquest (full game)
+
+After Render deploy → `npm run deploy:realm`
 
 ## Local development
 

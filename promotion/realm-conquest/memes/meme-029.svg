@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1a1520"/>
+  <rect x="40" y="200" width="720" height="200" rx="12" fill="#252540" stroke="#4a90d9" stroke-width="3"/>
+  <text x="400" y="60" text-anchor="middle" fill="white" font-family="Impact,Arial Black,sans-serif" font-size="42" stroke="black" stroke-width="2">WHEN YOU FINALLY</text>
+  <text x="400" y="110" text-anchor="middle" fill="#4a90d9" font-family="Impact,Arial Black,sans-serif" font-size="38" stroke="black" stroke-width="2">REALM CONQUEST</text>
+  <text x="400" y="310" text-anchor="middle" fill="white" font-family="Inter,sans-serif" font-size="28">AI factions fight back every turn</text>
+  <text x="400" y="520" text-anchor="middle" fill="white" font-family="Impact,Arial Black,sans-serif" font-size="36" stroke="black" stroke-width="2">CONQUER ALDORIA. ONE HEX AT A TIME.</text>
+</svg>

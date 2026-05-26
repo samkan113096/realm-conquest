@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  web-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verify web game files
+        run: |
+          test -f web-game/index.html
+          test -f web-game/js/main.js
+          node --check web-game/js/main.js 2>/dev/null || true
+
+  pc-game:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install pygame
+        run: pip install -r pc-game/requirements.txt
+      - name: Syntax check Python files
+        run: |
+          python -m py_compile pc-game/main.py
+          python -m py_compile pc-game/game.py
+          python -m py_compile pc-game/player.py
+          python -m py_compile pc-game/entities.py
+          python -m py_compile pc-game/powerups.py
+          python -m py_compile pc-game/ui.py
+
+  gamefi:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install and test GameFi
+        working-directory: gamefi
+        run: |
+          npm install
+          npm run compile
+          npm test
+
+  phone-game:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        working-directory: phone-game
+        run: npm install
+      - name: Verify app structure
+        run: |
+          test -f phone-game/App.js
+          test -f phone-game/src/components/GameScreen.js

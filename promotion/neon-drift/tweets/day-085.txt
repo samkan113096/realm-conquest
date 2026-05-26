@@ -1,0 +1,7 @@
+Neon Drift — PC desktop · Pygame arcade shooter
+
+High score saved locally — beat your ghost. No install drama. Just play.
+
+Outrun the drones. Chase the high score.
+
+#NeonDrift #ArcadeShooter #IndieGame #Roguelike #Cyberpunk

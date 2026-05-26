@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Play Chain Loot — Zombie Siege Tutorial</title>
+  <meta name="description" content="Complete Chain Loot tutorial: connect wallet, mint hero & weapon NFTs, fight zombies on-chain in Zombie Siege, stake LOOT on Sepolia testnet.">
+  <link rel="canonical" href="https://chainloot.io/tutorial.html">
+  <meta property="og:title" content="Chain Loot Tutorial — Zombie Siege">
+  <meta property="og:description" content="Learn to play Zombie Siege and earn LOOT on Sepolia testnet.">
+  <meta property="og:image" content="https://chainloot.io/assets/hero.jpg">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo"><img class="logo-mark" src="assets/logo.png" alt="" width="40" height="40"> Chain Loot</a>
+      <nav class="site-nav"><ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="https://tourmaline-naiad-7f3ed0.netlify.app" class="btn btn-primary" style="padding:0.35rem 0.85rem;font-size:0.8rem">Launch dApp</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <div class="page-hero container">
+    <h1>How to Play Chain Loot</h1>
+    <p class="meta">Complete guide to Zombie Siege · Live on Ethereum Sepolia testnet</p>
+  </div>
+
+  <div class="prose">
+    <p>Chain Loot is <strong>independent</strong> from other games in this portfolio (Realm Conquest, Neon Drift, Shadow Strike). Everything you earn comes from <strong>Zombie Siege</strong> and on-chain LOOT mechanics inside the Chain Loot dApp.</p>
+
+    <h2 id="wallet">1. Connect Your Wallet</h2>
+    <p>Open the <a href="https://tourmaline-naiad-7f3ed0.netlify.app">dApp</a> and click <strong>Connect Wallet</strong>. MetaMask is recommended.</p>
+    <h3>Testnet (live — Ethereum Sepolia)</h3>
+    <ol>
+      <li>Open <a href="https://tourmaline-naiad-7f3ed0.netlify.app">dApp on Netlify</a></li>
+      <li>MetaMask → <strong>Sepolia</strong> network (chain ID <strong>11155111</strong>)</li>
+      <li>Connect wallet → earn LOOT via Play or community airdrop</li>
+    </ol>
+    <h3>Local development setup</h3>
+    <ol>
+      <li>Terminal 1: <code>cd gamefi && npx hardhat node</code></li>
+      <li>Terminal 2: <code>cd gamefi && npm run deploy:local</code></li>
+      <li>Terminal 3: <code>cd gamefi && npm run signer</code> (site on :3001)</li>
+      <li>Terminal 4: <code>cd gamefi/dapp && npm run dev</code> (dApp on :5173)</li>
+    </ol>
+    <p>Add network to MetaMask:</p>
+    <ul>
+      <li><strong>Name:</strong> Hardhat Local</li>
+      <li><strong>RPC:</strong> http://127.0.0.1:8545</li>
+      <li><strong>Chain ID:</strong> 31337</li>
+    </ul>
+    <p>Import Hardhat account #0 private key (public test key only):</p>
+    <pre>0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80</pre>
+
+    <h2 id="loot">2. Get LOOT</h2>
+    <p>There is <strong>no public faucet</strong>. Get LOOT by:</p>
+    <ul>
+      <li><strong>Play Zombie Siege</strong> — win fights to mint LOOT on-chain</li>
+      <li><strong>Marketplace</strong> — buy LOOT-priced NFTs or trade with other players</li>
+      <li><strong>Community airdrops</strong> — when we run a campaign, your wallet is registered on the <code>LootAirdrop</code> contract and you claim or receive LOOT</li>
+    </ul>
+
+    <h2 id="mint">3. Mint a Hero NFT (50 LOOT)</h2>
+    <p>Go to the <strong>Play</strong> or <strong>Heroes</strong> tab and click <strong>Mint Hero (50 LOOT)</strong>.</p>
+    <p>Each hero is an ERC-721 (<strong>CLOOT</strong>) with on-chain randomized:</p>
+    <ul>
+      <li><strong>Class:</strong> Warrior, Ranger, Mage, Tank, or Assassin</li>
+      <li><strong>Rarity:</strong> Common, Uncommon, Rare, Epic, or Legendary</li>
+      <li><strong>Stats:</strong> Power, Speed, Defense, Luck</li>
+    </ul>
+    <p>Max supply: <strong>10,000 heroes</strong> globally. Max <strong>20 per wallet</strong>.</p>
+
+    <h2 id="weapon">4. Mint &amp; Equip a Weapon (25 LOOT)</h2>
+    <p>Mint a <strong>WLOOT</strong> weapon NFT for 25 LOOT. Weapons roll type (Sword/Bow/Staff/Hammer/Dagger), damage, crit, and rarity.</p>
+    <p>Select your hero and weapon in the Play tab, then click <strong>Equip to Hero</strong>. This calls <code>equipWeapon()</code> on the ZombieSiege contract on-chain.</p>
+    <p>Max supply: <strong>20,000 weapons</strong>.</p>
+
+    <h2 id="siege">5. Fight Zombies in Zombie Siege</h2>
+    <p>This is Chain Loot's play-to-earn game. All combat resolves on-chain — no external games, no score signer.</p>
+    <h3>Hero HP (anti-grind)</h3>
+    <p>Every hero has on-chain <strong>HP</strong> based on Defense, Power, class, and rarity. <strong>Each fight costs HP win or lose</strong> — you cannot grind forever on one hero.</p>
+    <ul>
+      <li>HP regenerates passively: <strong>10 HP per hour</strong> (on-chain)</li>
+      <li>Minimum <strong>15 HP</strong> required to enter a fight</li>
+      <li>Higher zombie tiers cost more HP per battle</li>
+      <li>Tank and Legendary heroes have more max HP — mint better heroes or rotate your roster</li>
+    </ul>
+    <ol>
+      <li>Open the <strong>🧟 Play</strong> tab</li>
+      <li>Check your <strong>Combat Power</strong> (hero stats + rarity + class + weapon)</li>
+      <li>Pick a zombie tier you meet the minimum power for:</li>
+    </ol>
+    <ul>
+      <li><strong>Shambler</strong> — 40 power · 2 LOOT · 12 HP cost</li>
+      <li><strong>Runner</strong> — 70 power · 5 LOOT · 18 HP</li>
+      <li><strong>Brute</strong> — 110 power · 10 LOOT · 26 HP</li>
+      <li><strong>Elite</strong> — 160 power · 20 LOOT · 36 HP</li>
+      <li><strong>Necromancer</strong> — 220 power · 40 LOOT · 48 HP</li>
+    </ul>
+    <p>Click <strong>Fight On-Chain</strong> and confirm in MetaMask. The smart contract rolls win chance based on your power vs the zombie. Wins mint LOOT directly to your wallet. Each hero has a 30-second cooldown between fights and loses HP every battle.</p>
+    <p>Epic and Legendary heroes earn bonus LOOT on victories.</p>
+
+    <h2 id="stake">6. Stake LOOT (Optional)</h2>
+    <p>On the <strong>Staking</strong> tab, approve and stake LOOT for passive rewards. Claim anytime without unstaking your principal.</p>
+
+    <h2 id="market">7. Trade NFTs (Optional)</h2>
+    <p>The <strong>Market</strong> tab links to the GameMarketplace contract where you can list CLOOT heroes and WLOOT weapons for LOOT.</p>
+
+    <h2>Troubleshooting</h2>
+    <ul>
+      <li><strong>Contracts not deployed</strong> — run <code>npm run deploy:local</code> with Hardhat node running</li>
+      <li><strong>Wrong network</strong> — switch MetaMask to <strong>Sepolia</strong> (11155111) for live testnet, or Hardhat Local (31337) for dev</li>
+      <li><strong>Hero too weak</strong> — mint a weapon, equip it, or mint another hero for better rarity</li>
+      <li><strong>Hero resting</strong> — wait 30 seconds between fights (on-chain cooldown)</li>
+      <li><strong>Hero HP too low</strong> — wait for passive regen (~10 HP/hr) or mint/use another hero</li>
+      <li><strong>Gas limit too high / mint failed</strong> — usually wrong network or insufficient LOOT; fight zombies or wait for an airdrop</li>
+      <li><strong>Future networks</strong> — Optimism mainnet planned after Sepolia testnet phase</li>
+    </ul>
+
+    <p style="margin-top:2rem">
+      <a href="https://tourmaline-naiad-7f3ed0.netlify.app" class="btn btn-primary">Launch dApp</a>
+      <a href="blog/zombie-siege-guide.html" class="btn btn-ghost" style="margin-left:0.5rem">Zombie Siege Blog Post</a>
+    </p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    <p class="footer-copy"><a href="/">← Chain Loot Home</a></p>
+  </footer>
+</body>
+</html>

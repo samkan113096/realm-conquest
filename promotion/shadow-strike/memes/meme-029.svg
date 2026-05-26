@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#140a18"/>
+  <rect x="40" y="200" width="720" height="200" rx="12" fill="#252540" stroke="#ff4466" stroke-width="3"/>
+  <text x="400" y="60" text-anchor="middle" fill="white" font-family="Impact,Arial Black,sans-serif" font-size="42" stroke="black" stroke-width="2">WHEN YOU FINALLY</text>
+  <text x="400" y="110" text-anchor="middle" fill="#ff4466" font-family="Impact,Arial Black,sans-serif" font-size="38" stroke="black" stroke-width="2">SHADOW STRIKE</text>
+  <text x="400" y="310" text-anchor="middle" fill="white" font-family="Inter,sans-serif" font-size="28">Left joystick move, tap attack for combos</text>
+  <text x="400" y="520" text-anchor="middle" fill="white" font-family="Impact,Arial Black,sans-serif" font-size="36" stroke="black" stroke-width="2">FIGHT THE UNDERREALM. FLOOR BY FLOOR.</text>
+</svg>

@@ -1,0 +1,30 @@
+{
+  "name": "chain-loot-gamefi",
+  "version": "1.0.0",
+  "description": "Chain Loot — Zombie Siege play-to-earn on Optimism",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy:op-sepolia": "hardhat run scripts/deploy.js --network optimismSepolia",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
+    "deploy:local": "hardhat run scripts/deploy.js --network hardhat",
+    "upgrade:siege": "hardhat run scripts/upgrade-zombie-siege.js --network hardhat",
+    "node": "hardhat node",
+    "signer": "node server/signer.js",
+    "dapp": "cd dapp && npm run dev",
+    "dev": "concurrently \"hardhat node\" \"node server/signer.js\" \"cd dapp && npm run dev\""
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.1.0",
+    "concurrently": "^9.1.0",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.0"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts-upgradeable": "^5.6.1",
+    "@openzeppelin/hardhat-upgrades": "^3.9.1",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}

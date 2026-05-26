@@ -1,0 +1,9 @@
+Day 36 of Realm Conquest 🏰⚔️🗺️
+
+Conquer Aldoria. One hex at a time.
+
+AI factions fight back every turn.
+
+▶ http://localhost:8080
+
+#RealmConquest #StrategyGame #IndieGame #BrowserGame

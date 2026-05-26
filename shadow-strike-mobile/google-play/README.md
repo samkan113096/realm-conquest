@@ -1,7 +1,7 @@
 # Shadow Strike — Google Play Store Package
 
 **Developer:** Dicky Hui  
-**Package:** `com.gamedev.shadowstrike`
+**Package:** `com.shadowstrike.myapp`
 
 ## URLs (after Netlify deploy)
 

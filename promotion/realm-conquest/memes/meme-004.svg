@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#1a1520"/>
+  <rect x="0" y="0" width="800" height="300" fill="#1a1a2e"/>
+  <rect x="0" y="300" width="800" height="300" fill="#252540"/>
+  <text x="420" y="80" fill="#888" font-family="Inter,sans-serif" font-size="22">❌ Another boring shooter</text>
+  <text x="420" y="380" fill="#4a90d9" font-family="Inter,sans-serif" font-size="24" font-weight="bold">✅ Realm Conquest: Build farms before barracks — army eats food</text>
+  <text x="40" y="560" fill="#666" font-family="Inter,sans-serif" font-size="16">Conquer Aldoria. One hex at a time. · Day 12 meme #4</text>
+  <text x="40" y="90" font-size="120">�</text>
+  <text x="40" y="390" font-size="120">�</text>
+</svg>

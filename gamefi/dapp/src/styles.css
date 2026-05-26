@@ -1,0 +1,263 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #07070f;
+  --surface: #0f0f1a;
+  --card: #141425;
+  --border: #252540;
+  --red: #ff0055;
+  --cyan: #00ffc8;
+  --purple: #9945ff;
+  --gold: #ffcc00;
+  --text: #e8e8ff;
+  --muted: #6666aa;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.app { min-height: 100vh; display: flex; flex-direction: column; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.logo-img { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; }
+.logo { display: flex; align-items: center; gap: 1rem; }
+
+.hero-banner {
+  padding: 0 !important;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 180px;
+}
+.hero-banner-img { width: 100%; height: 100%; object-fit: cover; min-height: 180px; }
+.hero-banner-text { padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; }
+.hero-banner-text h2 { font-family: 'Orbitron', sans-serif; color: var(--gold); }
+
+@media (max-width: 700px) {
+  .hero-banner { grid-template-columns: 1fr; }
+}
+.logo h1 { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--cyan); }
+.logo p { font-size: 0.75rem; color: var(--muted); }
+
+.header-right { display: flex; align-items: center; gap: 0.75rem; }
+.chain-badge { background: var(--card); border: 1px solid var(--border); padding: 0.3rem 0.75rem; border-radius: 20px; font-size: 0.75rem; color: var(--cyan); }
+.wallet { font-family: monospace; font-size: 0.85rem; color: var(--muted); }
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.tab {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  transition: all 0.15s;
+}
+
+.tab.active, .tab:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(0,255,200,0.05); }
+
+.main { flex: 1; padding: 2rem; max-width: 1200px; margin: 0 auto; width: 100%; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.card-wide { grid-column: 1 / -1; }
+.nft-preview { width: 100%; border-radius: 10px; margin-bottom: 0.5rem; aspect-ratio: 1; object-fit: cover; }
+.card-accent { border-color: var(--cyan); background: linear-gradient(135deg, rgba(0,255,200,0.05), var(--card)); }
+.card-inline { flex-direction: row; align-items: center; gap: 1rem; flex-wrap: wrap; }
+
+.stat-label { font-size: 0.8rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-value { font-size: 2rem; font-weight: 700; color: var(--cyan); font-family: 'Orbitron', sans-serif; }
+.stat-unit { font-size: 0.85rem; color: var(--muted); }
+
+.btn {
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.15s;
+}
+
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-primary { background: var(--cyan); color: #000; }
+.btn-primary:hover:not(:disabled) { box-shadow: 0 0 20px rgba(0,255,200,0.4); }
+.btn-secondary { background: var(--purple); color: #fff; }
+.btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); text-decoration: none; display: inline-block; text-align: center; }
+.btn-lg { padding: 1rem 2rem; font-size: 1rem; }
+
+.actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.input, select.input {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.form-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+.form-row .input { flex: 1; min-width: 120px; }
+
+.muted { color: var(--muted); font-size: 0.85rem; }
+.small { font-size: 0.75rem; }
+.tag { background: var(--purple); color: #fff; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; align-self: flex-start; }
+
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+.feature-list li::before { content: '⬡ '; color: var(--cyan); }
+
+.rarity-bar { display: flex; gap: 0.5rem; flex-wrap: wrap; font-size: 0.75rem; }
+.r-common { color: #aaa; }
+.r-rare { color: #4488ff; }
+.r-epic { color: var(--purple); }
+.r-legend { color: var(--gold); }
+
+.hero-count { font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: 'Orbitron', sans-serif; }
+
+.banner { padding: 0.75rem 2rem; text-align: center; font-size: 0.9rem; }
+.banner-warn { background: rgba(255,204,0,0.1); border-bottom: 1px solid rgba(255,204,0,0.3); color: var(--gold); }
+.banner-network { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem; background: rgba(255,80,80,0.12); border-bottom: 1px solid rgba(255,80,80,0.35); color: #ffaa99; }
+.banner code { background: rgba(0,0,0,0.3); padding: 0.1rem 0.4rem; border-radius: 4px; }
+
+.status-bar {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  border: 1px solid var(--cyan);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+.footer { padding: 1.5rem 2rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.5rem; align-items: center; }
+.footer-link { color: var(--cyan); text-decoration: none; font-size: 0.85rem; }
+.footer-link:hover { text-decoration: underline; }
+.btn-landing { font-size: 0.85rem; white-space: nowrap; }
+
+h2 { font-size: 1.1rem; color: var(--text); }
+
+.siege-canvas { width: 100%; max-width: 720px; border-radius: 12px; border: 1px solid var(--border); display: block; margin: 0 auto; background: #0c1424; }
+.hp-bar-wrap { margin-top: 0.75rem; }
+.hp-bar { height: 10px; background: rgba(0,0,0,0.35); border-radius: 999px; overflow: hidden; border: 1px solid var(--border); }
+.hp-bar-fill { height: 100%; background: linear-gradient(90deg, #22c55e, #4ade80); border-radius: 999px; transition: width 0.4s ease; }
+.hp-bar-label { display: block; margin-top: 0.35rem; font-size: 0.8rem; color: var(--muted); }
+.weapon-hint { font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem; }
+.siege-stage { text-align: center; }
+.preview-reward { margin-top: 0.75rem; color: var(--gold); font-size: 0.95rem; }
+.p2e-loop { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin: 1rem 0; padding: 0.75rem 1rem; background: rgba(0,229,204,0.06); border: 1px solid rgba(0,229,204,0.2); border-radius: 10px; font-size: 0.85rem; }
+.p2e-arrow { color: var(--cyan); font-weight: bold; }
+.p2e-loot { color: var(--gold); font-weight: 700; }
+.siege-stats { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); }
+.battle-log { list-style: none; padding: 0; margin: 0; }
+.battle-log li { padding: 0.4rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+.tier-btn.tier-4 { border-color: rgba(170,68,255,0.3); }
+.tier-btn.locked { opacity: 0.5; }
+.select-list { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0; }
+.select-item { background: var(--bg); border: 1px solid var(--border); color: var(--text); padding: 0.4rem 0.75rem; border-radius: 6px; cursor: pointer; }
+.select-item.active { border-color: var(--cyan); }
+.tier-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+.tier-btn {
+  background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 0.85rem;
+  cursor: pointer; text-align: left; color: var(--text);
+  display: flex; flex-direction: column; gap: 0.3rem;
+}
+.tier-btn strong { display: block; font-size: 1rem; color: var(--text); }
+.tier-btn span { display: block; font-size: 0.78rem; color: var(--muted); line-height: 1.35; }
+.tier-btn.active { border-color: var(--gold); box-shadow: 0 0 0 1px rgba(255,204,0,0.25); }
+.battle-arena { position: relative; margin: 1.25rem 0 1rem; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); background: #0c1424; }
+.battle-arena-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; padding: 0.85rem 1rem; background: rgba(0,0,0,0.35); border-bottom: 1px solid var(--border); }
+.battle-hero-chip { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; font-size: 0.85rem; }
+.battle-hero-chip strong { color: var(--gold); font-family: 'Orbitron', sans-serif; }
+.battle-vs { font-size: 0.8rem; color: var(--muted); }
+.battle-arena .siege-canvas { border: none; border-radius: 0; }
+.battle-overlay {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.75rem;
+  background: rgba(7,7,15,0.55); pointer-events: none;
+}
+.battle-overlay-text {
+  font-family: 'Orbitron', sans-serif; font-size: 1.25rem; color: var(--gold);
+  text-shadow: 0 0 20px rgba(255,204,0,0.5); animation: battlePulse 1s ease-in-out infinite;
+}
+.battle-overlay-sub { font-size: 0.85rem; color: var(--cyan); }
+@keyframes battlePulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.75; transform: scale(1.04); } }
+.battle-sparks { position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,204,0,0.03) 40px, rgba(255,204,0,0.03) 41px); animation: sparkScroll 0.6s linear infinite; pointer-events: none; }
+@keyframes sparkScroll { from { transform: translateX(0); } to { transform: translateX(41px); } }
+.warn { color: #ff8866; font-size: 0.85rem; margin-top: 0.5rem; }
+
+.nft-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 0.85rem; margin: 0.75rem 0; }
+.nft-grid-select { max-height: 420px; overflow-y: auto; }
+.nft-card {
+  background: var(--bg); border: 2px solid var(--border); border-radius: 12px; padding: 0.5rem;
+  cursor: pointer; text-align: center; width: 100%; color: inherit; font: inherit;
+}
+.nft-card-active { border-color: var(--cyan); box-shadow: 0 0 0 1px rgba(0,255,200,0.3); }
+.nft-card-compact { padding: 0.4rem; }
+.nft-frame { border-radius: 8px; overflow: hidden; aspect-ratio: 4/5; background: #0c1424; }
+.nft-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.nft-card-body { padding: 0.4rem 0.2rem 0.2rem; display: flex; flex-direction: column; gap: 0.2rem; }
+.nft-name { font-size: 0.78rem; line-height: 1.25; display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nft-id { font-size: 0.7rem; }
+.rarity-border-0 { box-shadow: inset 0 0 0 2px #888; }
+.rarity-border-1 { box-shadow: inset 0 0 0 2px #4ade80; }
+.rarity-border-2 { box-shadow: inset 0 0 0 2px #60a5fa; }
+.rarity-border-3 { box-shadow: inset 0 0 0 2px #c084fc; }
+.rarity-border-4 { box-shadow: inset 0 0 0 2px #ffc940; }
+.market-listing { display: flex; flex-direction: column; gap: 0.5rem; align-items: stretch; padding: 0.75rem; }
+.market-price { text-align: center; color: var(--gold); margin: 0.25rem 0; }
+.market-seller { text-align: center; font-size: 0.75rem; margin: 0; }
+.market-list-tabs { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+.market-list-tabs .tab { padding: 0.4rem 0.85rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); cursor: pointer; }
+.market-list-tabs .tab.active { border-color: var(--cyan); color: var(--cyan); }
+.market-list-form { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; align-items: center; }
+.market-list-form .input { flex: 1; min-width: 120px; }
+
+.btn-sm { padding: 0.4rem 0.85rem; font-size: 0.8rem; }
+.collection-panel { display: flex; flex-direction: column; gap: 1rem; width: 100%; }
+.collection-header, .marketplace-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.collection-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+.collection-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 0.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; }
+.collection-stats { font-size: 0.75rem; margin: 0; line-height: 1.4; }
+.collection-hp { margin-top: 0.25rem; }
+.collection-hp-label { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; }
+.collection-weapons-title { margin-top: 1.25rem; font-size: 1rem; }
+.staking-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 0.5rem 0 1rem; }
+.staking-stat { display: flex; flex-direction: column; gap: 0.25rem; }
+.staking-big { font-size: 2.5rem; color: var(--gold); }

@@ -1,0 +1,7 @@
+[build]
+  publish = "."
+  command = "node ../scripts/patch-site-urls.js"
+
+[build.environment]
+  NODE_VERSION = "20"
+  DAPP_URL = "https://tourmaline-naiad-7f3ed0.netlify.app"

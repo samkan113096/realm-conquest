@@ -1,0 +1,11 @@
+Feature spotlight 🏰⚔️🗺️
+
+Build farms before barracks — army eats food
+
+Built for browser · turn-based hex strategy.
+
+Conquer Aldoria. One hex at a time.
+
+▶ http://localhost:8080
+
+#RealmConquest #StrategyGame #IndieGame #BrowserGame

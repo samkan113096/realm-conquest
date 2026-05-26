@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Drift Tutorial — Controls, Combos & High Scores | Realm Games</title>
+  <meta name="description" content="Neon Drift tutorial: WASD and arrow controls, combos, power-ups, boss gates every 5 waves, 100-wave campaign, and save-and-continue tips for the free PC arcade shooter.">
+  <meta name="keywords" content="Neon Drift tutorial, arcade shooter guide, 100 wave campaign, boss fights, save game, free PC game">
+  <meta name="author" content="Realm Games Team">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://realmgames.io/tutorials/neon-drift.html">
+  <link rel="stylesheet" href="../css/site.css">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://realmgames.io/tutorials/neon-drift.html">
+  <meta property="og:title" content="Neon Drift Tutorial — Controls, Combos & High Scores | Realm Games">
+  <meta property="og:description" content="Neon Drift tutorial: WASD and arrow controls, combos, power-ups, boss gates every 5 waves, 100-wave campaign, and save-and-continue tips for the free PC arcade shooter.">
+  <meta property="og:site_name" content="Realm Games">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Neon Drift Tutorial — Controls, Combos & High Scores | Realm Games">
+  <meta name="twitter:description" content="Neon Drift tutorial: WASD and arrow controls, combos, power-ups, boss gates every 5 waves, 100-wave campaign, and save-and-continue tips for the free PC arcade shooter.">
+  <meta name="twitter:site" content="@RealmGames">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What platforms run Neon Drift?","acceptedAnswer":{"@type":"Answer","text":"PC via Python and Pygame on Windows, macOS, and Linux. Run npm run pc from the project root."}},{"@type":"Question","name":"How many waves are in Neon Drift?","acceptedAnswer":{"@type":"Answer","text":"100 warp gates. Every 5th wave is a Syndicate Dreadnought boss fight."}},{"@type":"Question","name":"Can I save my progress?","acceptedAnswer":{"@type":"Answer","text":"Yes. Pause with ESC to auto-save. Continue Campaign from the main menu to resume."}},{"@type":"Question","name":"How do combos work?","acceptedAnswer":{"@type":"Answer","text":"Chain kills without taking hull damage to multiply score up to 20x. Any hit resets the combo."}}]}
+  </script>
+
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="../index.html"><svg class="logo-mark" viewBox="0 0 36 36" aria-hidden="true"><rect width="36" height="36" rx="8" fill="#1a1d28"/><path d="M8 26 L18 8 L28 26 Z" fill="none" stroke="#7c5cff" stroke-width="2"/><circle cx="18" cy="20" r="4" fill="#00e5ff"/></svg> Realm Games</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html#games">Games</a></li>
+          <li><a href="../lore/universe.html">Lore</a></li>
+          <li><a href="../index.html#blog">Blog</a></li>
+          <li><a href="../games/gamefi.html">GameFi</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+    <article class="section">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> / Tutorials / Neon Drift</nav>
+        <header class="section-header" style="text-align:left;max-width:72ch;margin-left:0;">
+          <p class="eyebrow">Tutorial · Arcade shooter</p>
+          <h1>Neon Drift — Controls, Combos & 100-Wave Campaign</h1>
+          <p>Fly Captain Nova Kane's Wraith Wing through the Orion Belt: chain combos, grab power-ups, fight dreadnought bosses, and save your run mid-campaign.</p>
+        </header>
+        
+        <div class="prose">
+          <p><a href="../games/neon-drift.html">Neon Drift</a> is a free PC arcade shooter set in the Orion Belt, 2187. You are <strong>Captain Nova Kane</strong>, flying the <strong>Wraith Wing</strong> through <strong>100 warp gates</strong> while Viper Holdings sends drones and dreadnoughts to stop you. This guide matches the in-game tutorial and current build.</p>
+
+          <h2>Step 1 — Controls</h2>
+          <ul>
+            <li><strong>WASD or arrow keys</strong> — move in any direction; your ship turns toward your heading.</li>
+            <li><strong>Space (hold)</strong> — fire in the direction you're facing.</li>
+            <li><strong>ESC</strong> — pause and auto-save your campaign.</li>
+            <li><strong>M</strong> — return to main menu (from pause or game over).</li>
+            <li><strong>C</strong> — continue a saved campaign from the main menu.</li>
+            <li><strong>T</strong> — open the in-game tutorial from the main menu.</li>
+          </ul>
+          
+        <figure class="hero-art" style="max-width:820px;margin:2rem 0;" aria-labelledby="nd-ss1">
+          <svg viewBox="0 0 820 360" role="img">
+            <title id="nd-ss1">Control layout screenshot</title>
+            <rect width="820" height="360" fill="#12141c" rx="8"/>
+            <text x="410" y="180" text-anchor="middle" fill="#00e5ff" font-family="system-ui">WASD / ARROWS · SPACE SHOOT · ESC PAUSE</text><circle cx="410" cy="120" r="40" fill="none" stroke="#ff2d95" stroke-width="2"/>
+          </svg>
+          <figcaption style="color:var(--text-muted);font-size:0.9rem;margin-top:0.75rem;text-align:center;">Controls: 8-way movement, hold Space to shoot, ESC to pause and save.</figcaption>
+        </figure>
+
+          <h2>Step 2 — Build combos</h2>
+          <p>Each kill without taking hull damage adds to your combo multiplier — up to <strong>20×</strong> score per kill. Taking any hit resets the chain to zero. Corporate drones (from Wave 2) grant higher combo weight than asteroids. Play aggressive when you have shield charges; play safe when your HP is low.</p>
+          
+        <figure class="hero-art" style="max-width:820px;margin:2rem 0;" aria-labelledby="nd-ss2">
+          <svg viewBox="0 0 820 360" role="img">
+            <title id="nd-ss2">Combo meter screenshot</title>
+            <rect width="820" height="360" fill="#12141c" rx="8"/>
+            <text x="410" y="100" fill="#ff2d95" font-size="24" text-anchor="middle" font-family="system-ui">COMBO x7</text><rect x="250" y="140" width="320" height="20" fill="#1e2230"/><rect x="250" y="140" width="224" height="20" fill="#ff2d95"/>
+          </svg>
+          <figcaption style="color:var(--text-muted);font-size:0.9rem;margin-top:0.75rem;text-align:center;">Screenshot: combo multiplier at 7× with a filling pink streak bar.</figcaption>
+        </figure>
+
+          <h2>Step 3 — Power-ups</h2>
+          <p>Pickups drop from destroyed enemies and asteroids during combat:</p>
+          <ul>
+            <li><strong>RAPID</strong> — fast fire for ~8 seconds</li>
+            <li><strong>SPREAD</strong> — triple shot for ~10 seconds</li>
+            <li><strong>NUKE</strong> — clears all enemies and asteroids; heavy boss damage</li>
+            <li><strong>SHIELD</strong> — +2 shield charges that block hits</li>
+            <li><strong>HEAL</strong> — +1 HP</li>
+            <li><strong>SPEED</strong> — increased movement speed</li>
+          </ul>
+          <p><strong>SPREAD + RAPID</strong> overlapping is the best burst DPS for boss gates.</p>
+
+          <h2>Step 4 — Boss gates &amp; waves</h2>
+          <p>The campaign runs <strong>100 waves</strong>. Non-boss waves show a <strong>CLEAR X/Y</strong> kill quota on the HUD. Every <strong>5th wave</strong> (5, 10, 15 … 100) is a <strong>Syndicate Dreadnought</strong> — defeat the boss to advance. Bosses move, fire at you, and display an HP bar at the top of the screen. Wave 5 starts with <strong>Ironjaw Tanaka</strong>; Wave 100 ends with <strong>The Board — Final Executive</strong>.</p>
+          
+        <figure class="hero-art" style="max-width:820px;margin:2rem 0;" aria-labelledby="nd-ss3">
+          <svg viewBox="0 0 820 360" role="img">
+            <title id="nd-ss3">Wave boss screenshot</title>
+            <rect width="820" height="360" fill="#12141c" rx="8"/>
+            <ellipse cx="410" cy="180" rx="120" ry="60" fill="none" stroke="#f5c542" stroke-width="3"/><text x="410" y="300" text-anchor="middle" fill="#f5c542" font-family="system-ui">WAVE 5 — IRONJAW TANAKA</text>
+          </svg>
+          <figcaption style="color:var(--text-muted);font-size:0.9rem;margin-top:0.75rem;text-align:center;">Boss gate: dreadnought HP bar and named Syndicate boss every 5 waves.</figcaption>
+        </figure>
+
+          <h2>Step 5 — Save, pause &amp; high scores</h2>
+          <ul>
+            <li><strong>ESC</strong> pauses and auto-saves wave, score, HP, buffs, and boss state.</li>
+            <li><strong>Continue Campaign</strong> on the main menu resumes a saved run — a full 100-wave clear can take hours across sessions.</li>
+            <li>Death clears your save but keeps your high score in <code>savegame.json</code>.</li>
+            <li>Clear Wave 100 for the <strong>Galaxy Freed</strong> victory screen.</li>
+            <li>Read the story panel on the main menu for Orion Belt lore before you launch.</li>
+          </ul>
+        </div>
+        <section id="faq" class="section" style="padding-top:0;"><header class="section-header" style="text-align:left;margin-left:0;"><h2>Frequently asked questions</h2></header><div class="faq-list"><div class="faq-item"><h3>What platforms run Neon Drift?</h3><p>PC via Python and Pygame on Windows, macOS, and Linux. Run <code>npm run pc</code> from the project root.</p></div><div class="faq-item"><h3>How many waves are in Neon Drift?</h3><p>100 warp gates. Every 5th wave is a Syndicate Dreadnought boss fight.</p></div><div class="faq-item"><h3>Can I save my progress?</h3><p>Yes. Pause with ESC to auto-save. Continue Campaign from the main menu to resume.</p></div><div class="faq-item"><h3>How do combos work?</h3><p>Chain kills without taking hull damage to multiply score up to 20×. Any hit resets the combo.</p></div></div></section>
+        <p style="margin-top:2.5rem;">
+          <a class="btn btn-primary" href="../games/neon-drift.html">Play Now</a>
+          <a class="btn btn-secondary" href="../index.html#games">All Games</a>
+        </p>
+      </div>
+    </article>
+  </main>
+  <div class="play-bar">
+    <div class="play-bar-inner">
+      <p><strong>Neon Drift</strong> — free in four independent game worlds</p>
+      <a class="btn btn-primary" href="../games/neon-drift.html">Play Now</a>
+    </div>
+  </div>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo" href="../index.html">Realm Games</a>
+          <p style="color:var(--text-muted);font-size:0.9375rem;margin-top:0.75rem;">Free games and play to earn web3 gaming in four independent game worlds.</p>
+        </div>
+        <div>
+          <h4>Games</h4>
+          <ul>
+            <li><a href="../games/realm-conquest.html">Realm Conquest</a></li>
+            <li><a href="../games/neon-drift.html">Neon Drift</a></li>
+            <li><a href="../games/shadow-strike.html">Shadow Strike</a></li>
+            <li><a href="../games/gamefi.html">GameFi</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Learn</h4>
+          <ul>
+            <li><a href="../tutorials/realm-conquest.html">RC Tutorial</a></li>
+            <li><a href="../tutorials/neon-drift.html">Neon Drift Guide</a></li>
+            <li><a href="../tutorials/shadow-strike.html">Shadow Strike Guide</a></li>
+            <li><a href="../tutorials/gamefi.html">GameFi Tutorial</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="../lore/universe.html">Universe Lore</a></li>
+            <li><a href="../index.html#blog">Blog</a></li>
+            <li><a href="../sitemap.xml">Sitemap</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Realm Games. All rights reserved.</span>
+        <span>four independent game worlds · Optimism · Free to play</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/site.js" defer></script>
+</body>
+</html>

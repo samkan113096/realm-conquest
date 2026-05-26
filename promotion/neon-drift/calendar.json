@@ -1,0 +1,817 @@
+{
+  "game": "Neon Drift",
+  "id": "neon-drift",
+  "days": 90,
+  "schedule": [
+    {
+      "day": 1,
+      "dateOffset": "Day 1",
+      "theme": "launch",
+      "tweetFile": "tweets/day-001.txt",
+      "telegramFile": "telegram/day-001.md",
+      "emailFile": "emails/day-001.md",
+      "memeFile": null
+    },
+    {
+      "day": 2,
+      "dateOffset": "Day 2",
+      "theme": "tip",
+      "tweetFile": "tweets/day-002.txt",
+      "telegramFile": "telegram/day-002.md",
+      "emailFile": "emails/day-002.md",
+      "memeFile": null
+    },
+    {
+      "day": 3,
+      "dateOffset": "Day 3",
+      "theme": "feature",
+      "tweetFile": "tweets/day-003.txt",
+      "telegramFile": "telegram/day-003.md",
+      "emailFile": "emails/day-003.md",
+      "memeFile": "memes/meme-001.svg"
+    },
+    {
+      "day": 4,
+      "dateOffset": "Day 4",
+      "theme": "community",
+      "tweetFile": "tweets/day-004.txt",
+      "telegramFile": "telegram/day-004.md",
+      "emailFile": "emails/day-004.md",
+      "memeFile": null
+    },
+    {
+      "day": 5,
+      "dateOffset": "Day 5",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-005.txt",
+      "telegramFile": "telegram/day-005.md",
+      "emailFile": "emails/day-005.md",
+      "memeFile": null
+    },
+    {
+      "day": 6,
+      "dateOffset": "Day 6",
+      "theme": "meme",
+      "tweetFile": "tweets/day-006.txt",
+      "telegramFile": "telegram/day-006.md",
+      "emailFile": "emails/day-006.md",
+      "memeFile": "memes/meme-002.svg"
+    },
+    {
+      "day": 7,
+      "dateOffset": "Day 7",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-007.txt",
+      "telegramFile": "telegram/day-007.md",
+      "emailFile": "emails/day-007.md",
+      "memeFile": null
+    },
+    {
+      "day": 8,
+      "dateOffset": "Day 8",
+      "theme": "launch",
+      "tweetFile": "tweets/day-008.txt",
+      "telegramFile": "telegram/day-008.md",
+      "emailFile": "emails/day-008.md",
+      "memeFile": null
+    },
+    {
+      "day": 9,
+      "dateOffset": "Day 9",
+      "theme": "tip",
+      "tweetFile": "tweets/day-009.txt",
+      "telegramFile": "telegram/day-009.md",
+      "emailFile": "emails/day-009.md",
+      "memeFile": "memes/meme-003.svg"
+    },
+    {
+      "day": 10,
+      "dateOffset": "Day 10",
+      "theme": "feature",
+      "tweetFile": "tweets/day-010.txt",
+      "telegramFile": "telegram/day-010.md",
+      "emailFile": "emails/day-010.md",
+      "memeFile": null
+    },
+    {
+      "day": 11,
+      "dateOffset": "Day 11",
+      "theme": "community",
+      "tweetFile": "tweets/day-011.txt",
+      "telegramFile": "telegram/day-011.md",
+      "emailFile": "emails/day-011.md",
+      "memeFile": null
+    },
+    {
+      "day": 12,
+      "dateOffset": "Day 12",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-012.txt",
+      "telegramFile": "telegram/day-012.md",
+      "emailFile": "emails/day-012.md",
+      "memeFile": "memes/meme-004.svg"
+    },
+    {
+      "day": 13,
+      "dateOffset": "Day 13",
+      "theme": "meme",
+      "tweetFile": "tweets/day-013.txt",
+      "telegramFile": "telegram/day-013.md",
+      "emailFile": "emails/day-013.md",
+      "memeFile": null
+    },
+    {
+      "day": 14,
+      "dateOffset": "Day 14",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-014.txt",
+      "telegramFile": "telegram/day-014.md",
+      "emailFile": "emails/day-014.md",
+      "memeFile": null
+    },
+    {
+      "day": 15,
+      "dateOffset": "Day 15",
+      "theme": "launch",
+      "tweetFile": "tweets/day-015.txt",
+      "telegramFile": "telegram/day-015.md",
+      "emailFile": "emails/day-015.md",
+      "memeFile": "memes/meme-005.svg"
+    },
+    {
+      "day": 16,
+      "dateOffset": "Day 16",
+      "theme": "tip",
+      "tweetFile": "tweets/day-016.txt",
+      "telegramFile": "telegram/day-016.md",
+      "emailFile": "emails/day-016.md",
+      "memeFile": null
+    },
+    {
+      "day": 17,
+      "dateOffset": "Day 17",
+      "theme": "feature",
+      "tweetFile": "tweets/day-017.txt",
+      "telegramFile": "telegram/day-017.md",
+      "emailFile": "emails/day-017.md",
+      "memeFile": null
+    },
+    {
+      "day": 18,
+      "dateOffset": "Day 18",
+      "theme": "community",
+      "tweetFile": "tweets/day-018.txt",
+      "telegramFile": "telegram/day-018.md",
+      "emailFile": "emails/day-018.md",
+      "memeFile": "memes/meme-006.svg"
+    },
+    {
+      "day": 19,
+      "dateOffset": "Day 19",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-019.txt",
+      "telegramFile": "telegram/day-019.md",
+      "emailFile": "emails/day-019.md",
+      "memeFile": null
+    },
+    {
+      "day": 20,
+      "dateOffset": "Day 20",
+      "theme": "meme",
+      "tweetFile": "tweets/day-020.txt",
+      "telegramFile": "telegram/day-020.md",
+      "emailFile": "emails/day-020.md",
+      "memeFile": null
+    },
+    {
+      "day": 21,
+      "dateOffset": "Day 21",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-021.txt",
+      "telegramFile": "telegram/day-021.md",
+      "emailFile": "emails/day-021.md",
+      "memeFile": "memes/meme-007.svg"
+    },
+    {
+      "day": 22,
+      "dateOffset": "Day 22",
+      "theme": "launch",
+      "tweetFile": "tweets/day-022.txt",
+      "telegramFile": "telegram/day-022.md",
+      "emailFile": "emails/day-022.md",
+      "memeFile": null
+    },
+    {
+      "day": 23,
+      "dateOffset": "Day 23",
+      "theme": "tip",
+      "tweetFile": "tweets/day-023.txt",
+      "telegramFile": "telegram/day-023.md",
+      "emailFile": "emails/day-023.md",
+      "memeFile": null
+    },
+    {
+      "day": 24,
+      "dateOffset": "Day 24",
+      "theme": "feature",
+      "tweetFile": "tweets/day-024.txt",
+      "telegramFile": "telegram/day-024.md",
+      "emailFile": "emails/day-024.md",
+      "memeFile": "memes/meme-008.svg"
+    },
+    {
+      "day": 25,
+      "dateOffset": "Day 25",
+      "theme": "community",
+      "tweetFile": "tweets/day-025.txt",
+      "telegramFile": "telegram/day-025.md",
+      "emailFile": "emails/day-025.md",
+      "memeFile": null
+    },
+    {
+      "day": 26,
+      "dateOffset": "Day 26",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-026.txt",
+      "telegramFile": "telegram/day-026.md",
+      "emailFile": "emails/day-026.md",
+      "memeFile": null
+    },
+    {
+      "day": 27,
+      "dateOffset": "Day 27",
+      "theme": "meme",
+      "tweetFile": "tweets/day-027.txt",
+      "telegramFile": "telegram/day-027.md",
+      "emailFile": "emails/day-027.md",
+      "memeFile": "memes/meme-009.svg"
+    },
+    {
+      "day": 28,
+      "dateOffset": "Day 28",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-028.txt",
+      "telegramFile": "telegram/day-028.md",
+      "emailFile": "emails/day-028.md",
+      "memeFile": null
+    },
+    {
+      "day": 29,
+      "dateOffset": "Day 29",
+      "theme": "launch",
+      "tweetFile": "tweets/day-029.txt",
+      "telegramFile": "telegram/day-029.md",
+      "emailFile": "emails/day-029.md",
+      "memeFile": null
+    },
+    {
+      "day": 30,
+      "dateOffset": "Day 30",
+      "theme": "tip",
+      "tweetFile": "tweets/day-030.txt",
+      "telegramFile": "telegram/day-030.md",
+      "emailFile": "emails/day-030.md",
+      "memeFile": "memes/meme-010.svg"
+    },
+    {
+      "day": 31,
+      "dateOffset": "Day 31",
+      "theme": "feature",
+      "tweetFile": "tweets/day-031.txt",
+      "telegramFile": "telegram/day-031.md",
+      "emailFile": "emails/day-031.md",
+      "memeFile": null
+    },
+    {
+      "day": 32,
+      "dateOffset": "Day 32",
+      "theme": "community",
+      "tweetFile": "tweets/day-032.txt",
+      "telegramFile": "telegram/day-032.md",
+      "emailFile": "emails/day-032.md",
+      "memeFile": null
+    },
+    {
+      "day": 33,
+      "dateOffset": "Day 33",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-033.txt",
+      "telegramFile": "telegram/day-033.md",
+      "emailFile": "emails/day-033.md",
+      "memeFile": "memes/meme-011.svg"
+    },
+    {
+      "day": 34,
+      "dateOffset": "Day 34",
+      "theme": "meme",
+      "tweetFile": "tweets/day-034.txt",
+      "telegramFile": "telegram/day-034.md",
+      "emailFile": "emails/day-034.md",
+      "memeFile": null
+    },
+    {
+      "day": 35,
+      "dateOffset": "Day 35",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-035.txt",
+      "telegramFile": "telegram/day-035.md",
+      "emailFile": "emails/day-035.md",
+      "memeFile": null
+    },
+    {
+      "day": 36,
+      "dateOffset": "Day 36",
+      "theme": "launch",
+      "tweetFile": "tweets/day-036.txt",
+      "telegramFile": "telegram/day-036.md",
+      "emailFile": "emails/day-036.md",
+      "memeFile": "memes/meme-012.svg"
+    },
+    {
+      "day": 37,
+      "dateOffset": "Day 37",
+      "theme": "tip",
+      "tweetFile": "tweets/day-037.txt",
+      "telegramFile": "telegram/day-037.md",
+      "emailFile": "emails/day-037.md",
+      "memeFile": null
+    },
+    {
+      "day": 38,
+      "dateOffset": "Day 38",
+      "theme": "feature",
+      "tweetFile": "tweets/day-038.txt",
+      "telegramFile": "telegram/day-038.md",
+      "emailFile": "emails/day-038.md",
+      "memeFile": null
+    },
+    {
+      "day": 39,
+      "dateOffset": "Day 39",
+      "theme": "community",
+      "tweetFile": "tweets/day-039.txt",
+      "telegramFile": "telegram/day-039.md",
+      "emailFile": "emails/day-039.md",
+      "memeFile": "memes/meme-013.svg"
+    },
+    {
+      "day": 40,
+      "dateOffset": "Day 40",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-040.txt",
+      "telegramFile": "telegram/day-040.md",
+      "emailFile": "emails/day-040.md",
+      "memeFile": null
+    },
+    {
+      "day": 41,
+      "dateOffset": "Day 41",
+      "theme": "meme",
+      "tweetFile": "tweets/day-041.txt",
+      "telegramFile": "telegram/day-041.md",
+      "emailFile": "emails/day-041.md",
+      "memeFile": null
+    },
+    {
+      "day": 42,
+      "dateOffset": "Day 42",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-042.txt",
+      "telegramFile": "telegram/day-042.md",
+      "emailFile": "emails/day-042.md",
+      "memeFile": "memes/meme-014.svg"
+    },
+    {
+      "day": 43,
+      "dateOffset": "Day 43",
+      "theme": "launch",
+      "tweetFile": "tweets/day-043.txt",
+      "telegramFile": "telegram/day-043.md",
+      "emailFile": "emails/day-043.md",
+      "memeFile": null
+    },
+    {
+      "day": 44,
+      "dateOffset": "Day 44",
+      "theme": "tip",
+      "tweetFile": "tweets/day-044.txt",
+      "telegramFile": "telegram/day-044.md",
+      "emailFile": "emails/day-044.md",
+      "memeFile": null
+    },
+    {
+      "day": 45,
+      "dateOffset": "Day 45",
+      "theme": "feature",
+      "tweetFile": "tweets/day-045.txt",
+      "telegramFile": "telegram/day-045.md",
+      "emailFile": "emails/day-045.md",
+      "memeFile": "memes/meme-015.svg"
+    },
+    {
+      "day": 46,
+      "dateOffset": "Day 46",
+      "theme": "community",
+      "tweetFile": "tweets/day-046.txt",
+      "telegramFile": "telegram/day-046.md",
+      "emailFile": "emails/day-046.md",
+      "memeFile": null
+    },
+    {
+      "day": 47,
+      "dateOffset": "Day 47",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-047.txt",
+      "telegramFile": "telegram/day-047.md",
+      "emailFile": "emails/day-047.md",
+      "memeFile": null
+    },
+    {
+      "day": 48,
+      "dateOffset": "Day 48",
+      "theme": "meme",
+      "tweetFile": "tweets/day-048.txt",
+      "telegramFile": "telegram/day-048.md",
+      "emailFile": "emails/day-048.md",
+      "memeFile": "memes/meme-016.svg"
+    },
+    {
+      "day": 49,
+      "dateOffset": "Day 49",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-049.txt",
+      "telegramFile": "telegram/day-049.md",
+      "emailFile": "emails/day-049.md",
+      "memeFile": null
+    },
+    {
+      "day": 50,
+      "dateOffset": "Day 50",
+      "theme": "launch",
+      "tweetFile": "tweets/day-050.txt",
+      "telegramFile": "telegram/day-050.md",
+      "emailFile": "emails/day-050.md",
+      "memeFile": null
+    },
+    {
+      "day": 51,
+      "dateOffset": "Day 51",
+      "theme": "tip",
+      "tweetFile": "tweets/day-051.txt",
+      "telegramFile": "telegram/day-051.md",
+      "emailFile": "emails/day-051.md",
+      "memeFile": "memes/meme-017.svg"
+    },
+    {
+      "day": 52,
+      "dateOffset": "Day 52",
+      "theme": "feature",
+      "tweetFile": "tweets/day-052.txt",
+      "telegramFile": "telegram/day-052.md",
+      "emailFile": "emails/day-052.md",
+      "memeFile": null
+    },
+    {
+      "day": 53,
+      "dateOffset": "Day 53",
+      "theme": "community",
+      "tweetFile": "tweets/day-053.txt",
+      "telegramFile": "telegram/day-053.md",
+      "emailFile": "emails/day-053.md",
+      "memeFile": null
+    },
+    {
+      "day": 54,
+      "dateOffset": "Day 54",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-054.txt",
+      "telegramFile": "telegram/day-054.md",
+      "emailFile": "emails/day-054.md",
+      "memeFile": "memes/meme-018.svg"
+    },
+    {
+      "day": 55,
+      "dateOffset": "Day 55",
+      "theme": "meme",
+      "tweetFile": "tweets/day-055.txt",
+      "telegramFile": "telegram/day-055.md",
+      "emailFile": "emails/day-055.md",
+      "memeFile": null
+    },
+    {
+      "day": 56,
+      "dateOffset": "Day 56",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-056.txt",
+      "telegramFile": "telegram/day-056.md",
+      "emailFile": "emails/day-056.md",
+      "memeFile": null
+    },
+    {
+      "day": 57,
+      "dateOffset": "Day 57",
+      "theme": "launch",
+      "tweetFile": "tweets/day-057.txt",
+      "telegramFile": "telegram/day-057.md",
+      "emailFile": "emails/day-057.md",
+      "memeFile": "memes/meme-019.svg"
+    },
+    {
+      "day": 58,
+      "dateOffset": "Day 58",
+      "theme": "tip",
+      "tweetFile": "tweets/day-058.txt",
+      "telegramFile": "telegram/day-058.md",
+      "emailFile": "emails/day-058.md",
+      "memeFile": null
+    },
+    {
+      "day": 59,
+      "dateOffset": "Day 59",
+      "theme": "feature",
+      "tweetFile": "tweets/day-059.txt",
+      "telegramFile": "telegram/day-059.md",
+      "emailFile": "emails/day-059.md",
+      "memeFile": null
+    },
+    {
+      "day": 60,
+      "dateOffset": "Day 60",
+      "theme": "community",
+      "tweetFile": "tweets/day-060.txt",
+      "telegramFile": "telegram/day-060.md",
+      "emailFile": "emails/day-060.md",
+      "memeFile": "memes/meme-020.svg"
+    },
+    {
+      "day": 61,
+      "dateOffset": "Day 61",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-061.txt",
+      "telegramFile": "telegram/day-061.md",
+      "emailFile": "emails/day-061.md",
+      "memeFile": null
+    },
+    {
+      "day": 62,
+      "dateOffset": "Day 62",
+      "theme": "meme",
+      "tweetFile": "tweets/day-062.txt",
+      "telegramFile": "telegram/day-062.md",
+      "emailFile": "emails/day-062.md",
+      "memeFile": null
+    },
+    {
+      "day": 63,
+      "dateOffset": "Day 63",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-063.txt",
+      "telegramFile": "telegram/day-063.md",
+      "emailFile": "emails/day-063.md",
+      "memeFile": "memes/meme-021.svg"
+    },
+    {
+      "day": 64,
+      "dateOffset": "Day 64",
+      "theme": "launch",
+      "tweetFile": "tweets/day-064.txt",
+      "telegramFile": "telegram/day-064.md",
+      "emailFile": "emails/day-064.md",
+      "memeFile": null
+    },
+    {
+      "day": 65,
+      "dateOffset": "Day 65",
+      "theme": "tip",
+      "tweetFile": "tweets/day-065.txt",
+      "telegramFile": "telegram/day-065.md",
+      "emailFile": "emails/day-065.md",
+      "memeFile": null
+    },
+    {
+      "day": 66,
+      "dateOffset": "Day 66",
+      "theme": "feature",
+      "tweetFile": "tweets/day-066.txt",
+      "telegramFile": "telegram/day-066.md",
+      "emailFile": "emails/day-066.md",
+      "memeFile": "memes/meme-022.svg"
+    },
+    {
+      "day": 67,
+      "dateOffset": "Day 67",
+      "theme": "community",
+      "tweetFile": "tweets/day-067.txt",
+      "telegramFile": "telegram/day-067.md",
+      "emailFile": "emails/day-067.md",
+      "memeFile": null
+    },
+    {
+      "day": 68,
+      "dateOffset": "Day 68",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-068.txt",
+      "telegramFile": "telegram/day-068.md",
+      "emailFile": "emails/day-068.md",
+      "memeFile": null
+    },
+    {
+      "day": 69,
+      "dateOffset": "Day 69",
+      "theme": "meme",
+      "tweetFile": "tweets/day-069.txt",
+      "telegramFile": "telegram/day-069.md",
+      "emailFile": "emails/day-069.md",
+      "memeFile": "memes/meme-023.svg"
+    },
+    {
+      "day": 70,
+      "dateOffset": "Day 70",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-070.txt",
+      "telegramFile": "telegram/day-070.md",
+      "emailFile": "emails/day-070.md",
+      "memeFile": null
+    },
+    {
+      "day": 71,
+      "dateOffset": "Day 71",
+      "theme": "launch",
+      "tweetFile": "tweets/day-071.txt",
+      "telegramFile": "telegram/day-071.md",
+      "emailFile": "emails/day-071.md",
+      "memeFile": null
+    },
+    {
+      "day": 72,
+      "dateOffset": "Day 72",
+      "theme": "tip",
+      "tweetFile": "tweets/day-072.txt",
+      "telegramFile": "telegram/day-072.md",
+      "emailFile": "emails/day-072.md",
+      "memeFile": "memes/meme-024.svg"
+    },
+    {
+      "day": 73,
+      "dateOffset": "Day 73",
+      "theme": "feature",
+      "tweetFile": "tweets/day-073.txt",
+      "telegramFile": "telegram/day-073.md",
+      "emailFile": "emails/day-073.md",
+      "memeFile": null
+    },
+    {
+      "day": 74,
+      "dateOffset": "Day 74",
+      "theme": "community",
+      "tweetFile": "tweets/day-074.txt",
+      "telegramFile": "telegram/day-074.md",
+      "emailFile": "emails/day-074.md",
+      "memeFile": null
+    },
+    {
+      "day": 75,
+      "dateOffset": "Day 75",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-075.txt",
+      "telegramFile": "telegram/day-075.md",
+      "emailFile": "emails/day-075.md",
+      "memeFile": "memes/meme-025.svg"
+    },
+    {
+      "day": 76,
+      "dateOffset": "Day 76",
+      "theme": "meme",
+      "tweetFile": "tweets/day-076.txt",
+      "telegramFile": "telegram/day-076.md",
+      "emailFile": "emails/day-076.md",
+      "memeFile": null
+    },
+    {
+      "day": 77,
+      "dateOffset": "Day 77",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-077.txt",
+      "telegramFile": "telegram/day-077.md",
+      "emailFile": "emails/day-077.md",
+      "memeFile": null
+    },
+    {
+      "day": 78,
+      "dateOffset": "Day 78",
+      "theme": "launch",
+      "tweetFile": "tweets/day-078.txt",
+      "telegramFile": "telegram/day-078.md",
+      "emailFile": "emails/day-078.md",
+      "memeFile": "memes/meme-026.svg"
+    },
+    {
+      "day": 79,
+      "dateOffset": "Day 79",
+      "theme": "tip",
+      "tweetFile": "tweets/day-079.txt",
+      "telegramFile": "telegram/day-079.md",
+      "emailFile": "emails/day-079.md",
+      "memeFile": null
+    },
+    {
+      "day": 80,
+      "dateOffset": "Day 80",
+      "theme": "feature",
+      "tweetFile": "tweets/day-080.txt",
+      "telegramFile": "telegram/day-080.md",
+      "emailFile": "emails/day-080.md",
+      "memeFile": null
+    },
+    {
+      "day": 81,
+      "dateOffset": "Day 81",
+      "theme": "community",
+      "tweetFile": "tweets/day-081.txt",
+      "telegramFile": "telegram/day-081.md",
+      "emailFile": "emails/day-081.md",
+      "memeFile": "memes/meme-027.svg"
+    },
+    {
+      "day": 82,
+      "dateOffset": "Day 82",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-082.txt",
+      "telegramFile": "telegram/day-082.md",
+      "emailFile": "emails/day-082.md",
+      "memeFile": null
+    },
+    {
+      "day": 83,
+      "dateOffset": "Day 83",
+      "theme": "meme",
+      "tweetFile": "tweets/day-083.txt",
+      "telegramFile": "telegram/day-083.md",
+      "emailFile": "emails/day-083.md",
+      "memeFile": null
+    },
+    {
+      "day": 84,
+      "dateOffset": "Day 84",
+      "theme": "weekend",
+      "tweetFile": "tweets/day-084.txt",
+      "telegramFile": "telegram/day-084.md",
+      "emailFile": "emails/day-084.md",
+      "memeFile": "memes/meme-028.svg"
+    },
+    {
+      "day": 85,
+      "dateOffset": "Day 85",
+      "theme": "launch",
+      "tweetFile": "tweets/day-085.txt",
+      "telegramFile": "telegram/day-085.md",
+      "emailFile": "emails/day-085.md",
+      "memeFile": null
+    },
+    {
+      "day": 86,
+      "dateOffset": "Day 86",
+      "theme": "tip",
+      "tweetFile": "tweets/day-086.txt",
+      "telegramFile": "telegram/day-086.md",
+      "emailFile": "emails/day-086.md",
+      "memeFile": null
+    },
+    {
+      "day": 87,
+      "dateOffset": "Day 87",
+      "theme": "feature",
+      "tweetFile": "tweets/day-087.txt",
+      "telegramFile": "telegram/day-087.md",
+      "emailFile": "emails/day-087.md",
+      "memeFile": "memes/meme-029.svg"
+    },
+    {
+      "day": 88,
+      "dateOffset": "Day 88",
+      "theme": "community",
+      "tweetFile": "tweets/day-088.txt",
+      "telegramFile": "telegram/day-088.md",
+      "emailFile": "emails/day-088.md",
+      "memeFile": null
+    },
+    {
+      "day": 89,
+      "dateOffset": "Day 89",
+      "theme": "challenge",
+      "tweetFile": "tweets/day-089.txt",
+      "telegramFile": "telegram/day-089.md",
+      "emailFile": "emails/day-089.md",
+      "memeFile": null
+    },
+    {
+      "day": 90,
+      "dateOffset": "Day 90",
+      "theme": "meme",
+      "tweetFile": "tweets/day-090.txt",
+      "telegramFile": "telegram/day-090.md",
+      "emailFile": "emails/day-090.md",
+      "memeFile": "memes/meme-030.svg"
+    }
+  ]
+}

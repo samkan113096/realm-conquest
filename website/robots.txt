@@ -1,0 +1,8 @@
+# Realm Games — https://realmgames.io
+User-agent: *
+Allow: /
+
+Sitemap: https://realmgames.io/sitemap.xml
+
+# Disallow local dev artifacts if mirrored
+Disallow: /node_modules/

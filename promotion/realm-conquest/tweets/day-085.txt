@@ -1,0 +1,9 @@
+Realm Conquest — Browser · Turn-based hex strategy
+
+Neutral territories = easy loot. No install drama. Just play.
+
+Conquer Aldoria. One hex at a time.
+
+▶ http://localhost:8080
+
+#RealmConquest #StrategyGame #IndieGame #BrowserGame

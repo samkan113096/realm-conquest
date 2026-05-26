@@ -76,7 +76,7 @@ See [DEPLOY.md](./DEPLOY.md) for Netlify + Render matchmaking server setup.
 | Component | Host | Command / link |
 |-----------|------|----------------|
 | Game (static) | Netlify | `netlify deploy --prod --dir=.` from this folder |
-| Matchmaking | Render (recommended) | [Deploy blueprint](https://render.com/deploy?repo=https://github.com/SelfLearnedDev2027/realm-conquest) |
+| Matchmaking | Render (recommended) | [Deploy blueprint](https://render.com/deploy?repo=https://github.com/samkan113096/realm-conquest-api) |
 
 After Render deploy, set `window.RC_CONFIG.SOCKET_URL` in `index.html` to your API URL and redeploy Netlify.
 

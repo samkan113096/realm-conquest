@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0a0014"/><stop offset="100%" stop-color="#252540"/></linearGradient></defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <text x="400" y="200" text-anchor="middle" fill="#ff00ff" font-family="Orbitron,Inter,sans-serif" font-size="48">Neon Drift</text>
+  <text x="400" y="280" text-anchor="middle" fill="#ccc" font-family="Inter,sans-serif" font-size="24">Outrun the drones. Chase the high score.</text>
+  <text x="400" y="360" text-anchor="middle" fill="white" font-family="Inter,sans-serif" font-size="20">"Neon roguelike in the Orion Belt"</text>
+  <text x="400" y="480" text-anchor="middle" fill="#888" font-family="Inter,sans-serif" font-size="18">🚀💜⚡ PC desktop · Pygame arcade shooter</text>
+  <text x="400" y="540" text-anchor="middle" fill="#ff00ff" font-family="Inter,sans-serif" font-size="16">Day 45 · Meme 15</text>
+</svg>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Wallet Setup for Testing — Chain Loot Blog</title>
+  <meta name="description" content="Connect MetaMask to Hardhat local chain and test Chain Loot contracts without spending real ETH.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://chainloot.io/blog/wallet-setup-hardhat.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Local Wallet Setup for Testing">
+  <meta property="og:description" content="Connect MetaMask to Hardhat local chain and test Chain Loot contracts without spending real ETH.">
+  <meta property="og:image" content="https://chainloot.io/assets/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="icon" href="../assets/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BlogPosting","headline":"Local Wallet Setup for Testing","datePublished":"2026-05-05","author":{"@type":"Organization","name":"Chain Loot"},"publisher":{"@type":"Organization","name":"Chain Loot"},"description":"Connect MetaMask to Hardhat local chain and test Chain Loot contracts without spending real ETH."}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo"><img class="logo-mark" src="../assets/logo.png" alt="" width="40" height="40"> Chain Loot</a>
+      <nav class="site-nav"><ul>
+        <li><a href="../tutorial.html">Tutorial</a></li>
+        <li><a href="index.html">Blog</a></li>
+        <li><a href="https://tourmaline-naiad-7f3ed0.netlify.app" class="btn btn-primary" style="padding:0.35rem 0.85rem;font-size:0.8rem">Launch dApp</a></li>
+      </ul></nav>
+    </div>
+  </header>
+  <div class="page-hero container"><h1>Local Wallet Setup for Testing</h1><p class="meta">May 5, 2026 · Chain Loot GameFi</p></div>
+  <article class="prose">
+<p>Before touching testnet ETH, develop locally with Hardhat. Chain Loot's full stack — contracts, signer, dApp — runs on your machine in minutes.</p>
+<h2>Prerequisites</h2>
+<ul>
+  <li>Node.js 18+</li>
+  <li>MetaMask browser extension</li>
+  <li>Git clone of the gamefi folder</li>
+</ul>
+<h2>Step 1: Start Hardhat Node</h2>
+<pre><code>cd gamefi
+npx hardhat node</code></pre>
+<p>This starts a local blockchain on <code>http://127.0.0.1:8545</code> with 20 pre-funded accounts.</p>
+<h2>Step 2: Deploy Contracts</h2>
+<pre><code>npm run deploy:local</code></pre>
+<p>Addresses write to <code>dapp/src/abis/addresses.json</code>.</p>
+<h2>Step 3: Add Hardhat Network to MetaMask</h2>
+<ul>
+  <li>Network name: <strong>Hardhat Local</strong></li>
+  <li>RPC URL: <code>http://127.0.0.1:8545</code></li>
+  <li>Chain ID: <strong>31337</strong></li>
+  <li>Currency: ETH</li>
+</ul>
+<h2>Step 4: Import Test Account</h2>
+<p>Hardhat account #0 private key (public test key, never use on mainnet):</p>
+<pre><code>0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80</code></pre>
+<h2>Step 5: Start Services</h2>
+<pre><code>node server/signer.js   # port 3001
+cd dapp && npm run dev  # port 5173</code></pre>
+<p>Open <a href="https://tourmaline-naiad-7f3ed0.netlify.app">localhost:5173</a>, click Connect Wallet, and test every feature gas-free.</p>
+    <p style="margin-top:2rem"><a href="index.html">← All blog posts</a> · <a href="../tutorial.html">Tutorial</a> · <a href="https://tourmaline-naiad-7f3ed0.netlify.app">Launch dApp</a></p>
+  </article>
+  <footer class="site-footer">
+    <div class="footer-legal"><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div>
+    <div class="social">
+      <a href="https://t.me/chainloot" target="_blank" rel="noopener">Telegram</a>
+      <a href="https://twitter.com/chainloot" target="_blank" rel="noopener">Twitter</a>
+      <a href="mailto:support@chainloot.io">Email</a>
+    </div>
+    <p class="footer-copy">© 2026 Chain Loot · <a href="/">Home</a></p>
+  </footer>
+</body>
+</html>

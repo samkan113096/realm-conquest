@@ -9,10 +9,14 @@
     "web": "expo start --web --port 8082 --clear",
     "assets:generate": "python3 scripts/generate-assets.py",
     "assets:store": "python3 scripts/generate-store-assets.py",
+    "assets:promo": "bash scripts/generate-promo-clip.sh",
     "build:android": "eas build --platform android --profile production",
     "build:ios": "eas build --platform ios --profile production",
     "build:preview:android": "eas build --platform android --profile preview",
-    "build:preview:ios": "eas build --platform ios --profile preview"
+    "build:preview:ios": "eas build --platform ios --profile preview",
+    "submit:android": "eas submit --platform android --profile production --latest --non-interactive",
+    "play:download-aab": "bash scripts/download-latest-aab.sh",
+    "play:open-console": "open https://play.google.com/console"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",

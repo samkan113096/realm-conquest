@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Contract Security Audit — Chain Loot</title>
+  <meta name="description" content="Security review of Chain Loot contracts: GameToken, GameHero, GameWeapon, ZombieSiege (UUPS upgradeable), GameStaking, GameRewards, GameMarketplace.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://chainloot.io/audit.html">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner"><a href="/" class="logo"><img class="logo-mark" src="assets/logo.png" alt="" width="40" height="40"> Chain Loot</a></div>
+  </header>
+  <div class="page-hero container">
+    <h1>Smart Contract Security Audit</h1>
+    <p class="meta">Review date: May 24, 2026 · Chain Loot Engineering review</p>
+  </div>
+  <div class="prose">
+    <div class="audit-banner">
+      <span class="audit-badge">Audit Passed — No Critical Issues</span>
+      <p style="color:var(--muted);margin:0;flex:1">Seven contracts reviewed including <strong>UUPS upgradeable</strong> Zombie Siege P2E combat. Hardhat: <strong>6/6 passing</strong>.</p>
+    </div>
+
+    <h2>Scope</h2>
+    <ul>
+      <li><strong>GameToken.sol</strong> — LOOT ERC-20, MINTER_ROLE, 1B MAX_SUPPLY</li>
+      <li><strong>GameHero.sol</strong> — CLOOT hero NFTs, 5 classes, 5 rarities, 10k cap</li>
+      <li><strong>GameWeapon.sol</strong> — WLOOT weapon NFTs, equippable damage stats</li>
+      <li><strong>ZombieSiegeUpgradeable.sol</strong> — UUPS proxy; <code>fight()</code>, <code>equipWeapon()</code>, <code>previewReward()</code>, LOOT mint on victory</li>
+      <li><strong>GameStaking.sol</strong> — stake/unstake reward pool</li>
+      <li><strong>GameRewards.sol</strong> — daily faucet</li>
+      <li><strong>GameMarketplace.sol</strong> — NFT ↔ LOOT trades</li>
+    </ul>
+
+    <h2>Upgradeability (Zombie Siege)</h2>
+    <p>Zombie Siege deploys behind an <strong>ERC-1967 UUPS proxy</strong> so gameplay and reward logic can be improved without migrating player NFTs or LOOT balances.</p>
+    <ul>
+      <li><code>UPGRADER_ROLE</code> required for implementation upgrades via <code>upgradeToAndCall</code></li>
+      <li><code>initialize()</code> replaces constructor; implementation disables initializers</li>
+      <li>39-slot storage gap reserved for future variables</li>
+      <li>Custom <code>nonReentrant</code> modifier (upgrade-safe; no constructor-based guards)</li>
+      <li>Future upgrades: <code>npm run upgrade:siege</code> on admin network</li>
+    </ul>
+
+    <h2>Play-to-Earn (On-Chain)</h2>
+    <p>Defeating a zombie with a hero NFT mints LOOT to the player wallet on victory. Rewards scale by tier and hero rarity (Epic +20%, Legendary +50%). Higher combat power unlocks harder tiers with larger payouts — incentivizing better hero and weapon mints.</p>
+
+    <h2>Test Results</h2>
+    <p><code>gamefi/test/GameFi.test.js</code> — <strong>6/6 passing</strong>:</p>
+    <ul>
+      <li>Hero mint with rarity stats + totalMinted()</li>
+      <li>Weapon mint, equip, combat power calculation</li>
+      <li>Zombie fight + LOOT mint on victory + previewReward()</li>
+      <li>UUPS proxy upgrade by admin (redeploy implementation)</li>
+      <li>Daily faucet single-claim enforcement</li>
+      <li>Stake, time-warp, claim rewards</li>
+    </ul>
+
+    <h2>Findings Summary</h2>
+    <div class="audit-grid">
+      <div class="audit-item pass"><strong>Reentrancy</strong>Custom nonReentrant on Zombie Siege; ReentrancyGuard on Staking, Rewards.</div>
+      <div class="audit-item pass"><strong>On-Chain P2E</strong>Victory mints LOOT via MINTER_ROLE — no off-chain score trust for core combat.</div>
+      <div class="audit-item pass"><strong>UUPS Pattern</strong>Proxy address stable; implementation upgradeable under UPGRADER_ROLE.</div>
+      <div class="audit-item pass"><strong>Supply Caps</strong>Hero 10k · Weapon 20k · LOOT 1B enforced.</div>
+      <div class="audit-item pass"><strong>Access Control</strong>MINTER_ROLE scoped to Siege proxy, Rewards, Staking.</div>
+      <div class="audit-item pass"><strong>Cooldown</strong>Configurable per-hero fight cooldown (default 30s).</div>
+      <div class="audit-item low"><strong>Centralization</strong>Admin / UPGRADER keys — use multisig for mainnet.</div>
+      <div class="audit-item low"><strong>Upgrade Risk</strong>Storage layout must be preserved across implementations; audit each upgrade.</div>
+      <div class="audit-item info"><strong>Randomness</strong>block.prevrandao for fight rolls — consider Chainlink VRF for mainnet.</div>
+    </div>
+
+    <h2>Recommendations Before Mainnet</h2>
+    <ul>
+      <li>Gnosis Safe multisig for DEFAULT_ADMIN_ROLE and UPGRADER_ROLE</li>
+      <li>Document storage layout for every Zombie Siege upgrade</li>
+      <li>Chainlink VRF for fight randomness at scale</li>
+      <li>Third-party audit (OpenZeppelin, Trail of Bits)</li>
+      <li>Verify proxy + implementation on Optimism Etherscan</li>
+    </ul>
+
+    <p style="margin-top:2rem"><a href="blog/smart-contract-audit-2026.html" class="btn btn-ghost">Audit blog post</a> · <a href="https://tourmaline-naiad-7f3ed0.netlify.app" class="btn btn-primary">Launch dApp</a></p>
+  </div>
+  <footer class="site-footer">
+    <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    <p class="footer-copy"><a href="/">← Chain Loot Home</a></p>
+  </footer>
+</body>
+</html>

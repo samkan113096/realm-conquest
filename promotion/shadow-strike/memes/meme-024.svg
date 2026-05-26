@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#140a18"/>
+  <rect x="0" y="0" width="800" height="300" fill="#1a1a2e"/>
+  <rect x="0" y="300" width="800" height="300" fill="#252540"/>
+  <text x="420" y="80" fill="#888" font-family="Inter,sans-serif" font-size="22">❌ Pay-to-win mobile trash</text>
+  <text x="420" y="380" fill="#ff4466" font-family="Inter,sans-serif" font-size="24" font-weight="bold">✅ Shadow Strike: Endless dungeon floors in Neo-Tokyo 2187</text>
+  <text x="40" y="560" fill="#666" font-family="Inter,sans-serif" font-size="16">Fight the underrealm. Floor by floor. · Day 72 meme #24</text>
+  <text x="40" y="90" font-size="120">�</text>
+  <text x="40" y="390" font-size="120">�</text>
+</svg>

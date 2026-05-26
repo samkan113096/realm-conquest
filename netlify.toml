@@ -1,0 +1,3 @@
+# Deploy sites from subfolders:
+#   cd gamefi/dapp && netlify deploy --prod --dir=dist
+#   cd gamefi/site && DAPP_URL=<dapp-url> node ../scripts/patch-site-urls.js && netlify deploy --prod --dir=.

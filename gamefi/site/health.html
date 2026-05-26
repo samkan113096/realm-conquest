@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Status — Chain Loot</title>
+  <meta name="description" content="Chain Loot dApp and API status on Ethereum Sepolia testnet.">
+    <meta property="og:image" content="https://chainloot.io/assets/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo">Chain Loot</a>
+      <nav class="site-nav"><ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="https://tourmaline-naiad-7f3ed0.netlify.app">Launch dApp</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <section class="status-page">
+    <div class="status-card">
+      <div class="status-dot"></div>
+      <p class="status-ok" id="status-text">All Systems Operational</p>
+      <p class="status-detail">Signer API: <strong id="signer-addr">loading...</strong></p>
+      <p class="status-detail">Game: <strong>Zombie Siege</strong> (on-chain)</p>
+      <p class="status-detail">dApp: <a href="https://tourmaline-naiad-7f3ed0.netlify.app">tourmaline-naiad-7f3ed0.netlify.app</a></p>
+      <p class="status-detail">Network: Ethereum Sepolia (11155111) · Hardhat Local (31337) for dev</p>
+      <p class="status-detail" style="margin-top:1.5rem">
+        <a href="https://tourmaline-naiad-7f3ed0.netlify.app" class="btn btn-primary">Open dApp</a>
+      </p>
+      <p class="status-detail" style="margin-top:1rem;font-size:0.8rem">
+        Developers: <a href="/api/health">/api/health</a> (JSON)
+      </p>
+    </div>
+  </section>
+
+  <script>
+    fetch('/api/health').then(r => r.json()).then(d => {
+      document.getElementById('signer-addr').textContent = d.signer;
+      if (!d.ok) document.getElementById('status-text').textContent = 'Degraded';
+    }).catch(() => {
+      document.getElementById('status-text').textContent = 'Offline';
+      document.getElementById('status-text').style.color = '#ef4444';
+    });
+  </script>
+</body>
+</html>

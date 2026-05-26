@@ -4,7 +4,11 @@
     "slug": "shadow-strike",
     "version": "1.0.0",
     "orientation": "landscape",
-    "platforms": ["ios", "android", "web"],
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "scheme": "shadowstrike",
@@ -13,10 +17,12 @@
       "resizeMode": "cover",
       "backgroundColor": "#0a0612"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.gamedev.shadowstrike",
+      "bundleIdentifier": "com.ShadowStrike.myapp",
       "buildNumber": "1",
       "infoPlist": {
         "UISupportedInterfaceOrientations": [
@@ -30,7 +36,7 @@
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#0a0612"
       },
-      "package": "com.gamedev.shadowstrike",
+      "package": "com.ShadowStrike.myapp",
       "versionCode": 1
     },
     "web": {
@@ -45,8 +51,9 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "shadow-strike-mobile"
+        "projectId": "9de30b04-45ff-4725-b954-bceb9d1671cc"
       }
-    }
+    },
+    "owner": "dickhui912"
   }
 }

@@ -25,7 +25,7 @@ Everything **you** must provide before the app can go live. I can prepare builds
 - [x] **Privacy policy URL:** https://heartfelt-youtiao-7e3960.netlify.app/privacy.html
 - [x] **Marketing URL:** https://heartfelt-youtiao-7e3960.netlify.app/
 - [x] **Developer name:** Dicky Hui
-- [ ] **Support email:** dickyhui.dev@gmail.com — *confirm this is your real inbox*
+- [x] **Support email:** dickhui912@gmail.com
 
 ### 3. Store listing assets — READY in `shadow-strike-mobile/google-play/`
 - [x] Feature graphic `feature-graphic.png` (1024×500)
@@ -35,7 +35,7 @@ Everything **you** must provide before the app can go live. I can prepare builds
 Regenerate assets: `python3 scripts/generate-store-assets.py`
 
 ### 4. App Store Connect (Apple)
-- [ ] Create new app → name **Shadow Strike**, bundle ID `com.gamedev.shadowstrike`
+- [ ] Create new app → name **Shadow Strike**, package `com.shadowstrike.myapp`
 - [ ] Paste description from `STORE-LISTINGS.md`
 - [ ] Upload screenshots
 - [ ] Set category: **Games → Action**

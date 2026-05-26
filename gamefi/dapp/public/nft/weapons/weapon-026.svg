@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="400" viewBox="0 0 320 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0f1f18"/><stop offset="100%" stop-color="#07070f"/></linearGradient>
+  </defs>
+  <rect width="320" height="400" rx="16" fill="url(#bg)" stroke="#4ade80" stroke-width="3"/>
+  <text x="160" y="36" text-anchor="middle" fill="#4ade80" font-family="Orbitron,Inter,sans-serif" font-size="11">UNCOMMON</text>
+  <text x="160" y="58" text-anchor="middle" fill="#e8e8ff" font-family="Inter,sans-serif" font-size="13" font-weight="600">Hawkeye Warbow</text>
+  <text x="160" y="210" text-anchor="middle" font-size="100" filter="url(#none)">🏹</text>
+  <rect x="80" y="240" width="160" height="8" rx="4" fill="#22c55e" opacity="0.6"/>
+  <rect x="100" y="260" width="120" height="6" rx="3" fill="#4ade80" opacity="0.4"/>
+  <text x="160" y="310" text-anchor="middle" fill="#4ade80" font-family="Orbitron,sans-serif" font-size="13">Bow</text>
+  <text x="160" y="355" text-anchor="middle" fill="#6666aa" font-family="Inter,sans-serif" font-size="11">WLOOT Weapon NFT</text>
+  <text x="160" y="378" text-anchor="middle" fill="#444" font-family="Inter,sans-serif" font-size="10">#26</text>
+</svg>

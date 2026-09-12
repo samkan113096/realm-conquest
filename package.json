@@ -19,7 +19,8 @@
     "deploy:chainloot-dapp": "cd gamefi/dapp && npm run build && npx netlify deploy --prod --dir=dist",
     "deploy:chainloot-site": "cd gamefi/site && DAPP_URL=https://tourmaline-naiad-7f3ed0.netlify.app node ../scripts/patch-site-urls.js && npx netlify deploy --prod --dir=.",
     "deploy:shadow-strike-site": "cd website/shadow-strike && npx netlify deploy --prod --dir=.",
-    "deploy:all-sites": "npm run deploy:realm && npm run deploy:chainloot-dapp && npm run deploy:chainloot-site",
+    "deploy:neon-drift-site": "cd website/neon-drift && npx netlify deploy --prod --dir=.",
+    "deploy:all-sites": "npm run deploy:realm && npm run deploy:chainloot-dapp && npm run deploy:chainloot-site && npm run deploy:shadow-strike-site && npm run deploy:neon-drift-site",
     "deploy:render": "node scripts/deploy-render.mjs",
     "install:all": "cd shadow-strike-mobile && npm install && cd ../neon-drift-pc && pip3 install -r requirements.txt && cd ../gamefi && npm install && cd dapp && npm install",
     "start:all": "./scripts/start-all.sh"

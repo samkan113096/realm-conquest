@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Drift — PC Arcade Roguelike Shooter</title>
+  <meta name="description" content="Neon Drift by Dicky Hui. Orion Belt 2187 arcade roguelike — outrun Syndicate drones, chain combos, chase the high score on PC.">
+  <meta name="author" content="Dicky Hui">
+  <link rel="stylesheet" href="styles.css">
+  <meta property="og:title" content="Neon Drift — PC Arcade Roguelike Shooter">
+  <meta property="og:description" content="Outrun the drones. Chase the high score. Free PC arcade shooter.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="hero.png">
+</head>
+<body>
+  <header class="header">
+    <div class="wrap header-inner">
+      <span class="logo">NEON DRIFT</span>
+      <nav>
+        <a href="#play">Play</a>
+        <a href="#features">Features</a>
+        <a href="#controls">Controls</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Orion Belt 2187 · By Dicky Hui</p>
+          <h1>Outrun the drones. Chase the high score.</h1>
+          <p class="lead">Arcade roguelike shooter for PC. Pilot Captain Nova Kane’s Wraith Wing through 100 warp gates, fight Syndicate Dreadnoughts, and save mid-run.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://github.com/samkan113096/realm-conquest/tree/main/neon-drift-pc">Get the source</a>
+            <span class="btn btn-ghost">PC · Python + Pygame</span>
+          </div>
+          <ul class="badges">
+            <li>Free</li>
+            <li>Offline</li>
+            <li>Campaign save</li>
+            <li>100 waves</li>
+          </ul>
+        </div>
+        <div class="hero-art">
+          <img src="hero.png" alt="Neon Drift key art" width="640" height="360">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="wrap">
+        <h2>What’s in the run</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>100 warp gates</h3>
+            <p>Escalating waves, combos, and power-ups. Boss Dreadnought every 5 gates.</p>
+          </article>
+          <article class="card">
+            <h3>Campaign save</h3>
+            <p>Pause anytime — progress auto-saves. Continue from the main menu.</p>
+          </article>
+          <article class="card">
+            <h3>Standalone PC game</h3>
+            <p>Not a browser title and not GameFi. Install Pygame and run locally.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="play" class="section section-alt">
+      <div class="wrap story">
+        <h2>Play on your machine</h2>
+        <pre class="code">cd neon-drift-pc
+pip3 install -r requirements.txt
+python3 main.py
+
+# or from the game repo root
+npm run pc</pre>
+      </div>
+    </section>
+
+    <section id="controls" class="section">
+      <div class="wrap">
+        <h2>Controls</h2>
+        <div class="cards">
+          <article class="card"><h3>Move</h3><p>Arrow keys / WASD</p></article>
+          <article class="card"><h3>Shoot</h3><p>Hold Space</p></article>
+          <article class="card"><h3>Pause</h3><p>ESC (auto-saves)</p></article>
+          <article class="card"><h3>Menu</h3><p>M · Continue with C</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <strong>Neon Drift</strong>
+        <p>Developed by Dicky Hui</p>
+      </div>
+      <p class="copy">&copy; 2026 Dicky Hui. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -12,7 +12,8 @@ npm run deploy:realm              # Realm Conquest → Netlify
 npm run deploy:chainloot-dapp     # Chain Loot dApp → Netlify
 npm run deploy:chainloot-site     # Chain Loot landing → Netlify
 npm run deploy:shadow-strike-site # Shadow Strike marketing → Netlify
-npm run deploy:all-sites          # All three above
+npm run deploy:neon-drift-site    # Neon Drift PC landing → Netlify
+npm run deploy:all-sites          # Realm + Chain Loot dApp/site + Shadow + Neon
 npm run deploy:render             # Realm Conquest matchmaking → Render
 ```
 
@@ -67,8 +68,10 @@ npm run deploy:render             # Realm Conquest matchmaking → Render
 
 | Item | Detail |
 |------|--------|
+| Landing site | https://neon-drift-pc.netlify.app |
 | Run locally | `npm run pc` |
-| Distribution | Manual zip / itch.io — not on app stores |
+| Redeploy landing | `npm run deploy:neon-drift-site` |
+| Distribution | PC Pygame — not a browser game; itch.io / GitHub zip for binaries |
 
 ---
 

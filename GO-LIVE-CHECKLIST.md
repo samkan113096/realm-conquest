@@ -1,7 +1,9 @@
 # Go-Live Checklist — Dicky Hui / Game Portfolio
 
 **Developer:** Dicky Hui · **Support:** dickhui912@gmail.com  
-**Last audit:** May 2026
+**Last audit:** May 2026 · **Keys-only closeout:** 2026-09-12 → see [`KEYS_ONLY.md`](./KEYS_ONLY.md)
+
+**Status:** Sites redeployed · promo 180-day packs + dry-seed queues ready · **promo `enabled=false`** until Sam flips one id at a time.
 
 ---
 
